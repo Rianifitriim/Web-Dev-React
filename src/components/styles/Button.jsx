@@ -8,7 +8,7 @@ export const ButtonType = {
   // untuk button signup di navbar
   navSignUpBlue : "bg-transparent text-3F70F9 border border-3F70F9 hover:bg-blue-100 w-full sm:w-24 rounded-full",
   // untuk button sign up di navbar Home 
-  navSignUpWhite : "bg-transparent text-white border border-white hover:bg-white w-full sm:w-24 rounded-full", 
+  navSignUpWhite : "bg-transparent text-white border border-white hover:bg-white hover:text-3F70F9 w-full sm:w-24 rounded-full", 
   // untuk button di page login, signup, contact
   loginSignUpSend : "bg-3F70F9 text-white hover:border-blue-500 hover:bg-blue-400 w-full rounded", 
   // untuk button buy di card Home
