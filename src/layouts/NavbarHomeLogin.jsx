@@ -27,6 +27,14 @@ export default function NavbarHome({ fixed }) {
           id="example-navbar-danger"
         >
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+            <li className="nav-item">
+              <a
+                className="px-3 py-3 lg:hidden items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75 flex"
+                href="#pablo"
+              >
+                <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">hi, user </span>
+              </a>
+            </li>
             <li className="nav-item active">
               <a
                 className="px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75"
@@ -59,7 +67,7 @@ export default function NavbarHome({ fixed }) {
               >
               <SearchHome />
               </a>
-            </li>
+            </li>          
             <li className="nav-item">
               <a
                 className="px-3 py-2 lg:flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hidden"
@@ -70,15 +78,15 @@ export default function NavbarHome({ fixed }) {
             </li>
             <li className="nav-item">
               <a
-                className="px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75"
+                className="px-3 py-3 lg:flex items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75 hidden"
                 href="#pablo"
               >
-                <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">hi, user</span>
+                <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">hi, user </span>
               </a>
             </li>
             <li className="nav-item">
               <a
-                className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
+                className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75 "
                 href="#pablo"
               >
               <Button def="default" type="navLogin">logout</Button>
