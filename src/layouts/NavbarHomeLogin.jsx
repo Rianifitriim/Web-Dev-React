@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../icons/Logo";
 import {CartIconHome} from "../icons/CartIcon";
+import Button from "../components/Button";
 import {SearchHome} from "../components/Search";
 
 export default function NavbarHome({ fixed }) {
@@ -65,6 +66,22 @@ export default function NavbarHome({ fixed }) {
                 href="#pablo"
               >
               <CartIconHome />
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75"
+                href="#pablo"
+              >
+                <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">hi, user</span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
+                href="#pablo"
+              >
+              <Button def="default" type="navLogin">logout</Button>
               </a>
             </li>
           </ul>
