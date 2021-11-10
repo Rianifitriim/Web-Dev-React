@@ -1,13 +1,14 @@
 import ReactDOM from 'react-dom';
+import NavbarHome from './layouts/NavbarHome';
+import NavbarNoLogin from './layouts/NavbarNoLogin';
 import NavbarLogin from './layouts/NavbarLogin';
-import Navbar from './layouts/NavbarNoLogin';
+import Homepage from './pages/Homepage';
 
 function App() {
   return (
     <div className="App">
      <div>
-      <Navbar/>
-      <NavbarLogin/>
+      <Homepage />
      </div>
     </div>
   );
