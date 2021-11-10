@@ -1,5 +1,6 @@
 import React from "react";
 import jumbotron from "../images/jumbotron.png"
+import Footer from "../layouts/Footer";
 import NavbarHomeLogin from "../layouts/NavbarHomeLogin"
 
 export default function Homepage() {
@@ -22,6 +23,7 @@ export default function Homepage() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
