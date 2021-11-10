@@ -4,7 +4,7 @@ import CartIcon from "../icons/CartIcon";
 import Button from "../components/Button";
 import Search from "../components/Search";
 
-export default function Navbar({ fixed }) {
+export default function NavbarLogin({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
@@ -50,7 +50,7 @@ export default function Navbar({ fixed }) {
                   href="#pablo"
                 >
                   <span className="ml-2 col-span-10">my carts</span>
-                  <span className="ml-2 text-white bg-3F70F9 rounded-full p-1 col-span-2 text-center">0</span>
+                  <span className="ml-2 text-white bg-3F70F9 rounded-full p-1 col-span-2 text-center">3</span>
                 </a>
               </li>
               <li className="nav-item">
@@ -69,22 +69,7 @@ export default function Navbar({ fixed }) {
                 <CartIcon />
                 </a>
               </li>
-              <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
-                >
-                <Button def="default" type="navSignUpBlue">Sign up</Button>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
-                >
-                <Button def="default" type="navLogin">Login</Button>
-                </a>
-              </li>
+              
             </ul>
           </div>
         </div>
