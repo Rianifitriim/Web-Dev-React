@@ -30,6 +30,14 @@ export default function NavbarLogin({ fixed }) {
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="nav-item">
                 <a
+                  className="px-3 py-3 lg:hidden items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75 flex"
+                  href="#pablo"
+                >
+                  <i className="text-lg leading-lg text-black opacity-75"></i><span className="ml-2">hi, user </span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
                   className="px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75"
                   href="#pablo"
                 >
@@ -50,7 +58,7 @@ export default function NavbarLogin({ fixed }) {
                   href="#pablo"
                 >
                   <span className="ml-2 col-span-10">my carts</span>
-                  <span className="ml-2 text-white bg-3F70F9 rounded-full p-1 col-span-2 text-center">3</span>
+                  <span className="ml-2 text-white bg-3F70F9 rounded-full p-1 col-span-2 text-center">0</span>
                 </a>
               </li>
               <li className="nav-item">
@@ -71,7 +79,7 @@ export default function NavbarLogin({ fixed }) {
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75"
+                  className="px-3 py-3 lg:flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75 hidden"
                   href="#pablo"
                 >
                   <i className="text-lg leading-lg text-black opacity-75"></i><span className="ml-2">hi, user </span>
