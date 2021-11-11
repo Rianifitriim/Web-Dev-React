@@ -2,8 +2,9 @@ import React from "react";
 import jumbotron from "../images/jumbotron.png"
 import gambar from "../images/gambar.png"
 import Footer from "../layouts/Footer";
-import NavbarHomeLogin from "../layouts/NavbarHomeLogin"
+import NavbarHome from "../layouts/NavbarHome"
 import Button from "../components/Button";
+import Card from "../components/cardComponent"
 
 export default function Homepage() {
 
@@ -11,7 +12,7 @@ export default function Homepage() {
     <>
       {/* section jumbotron */}
       <div className="bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins mb-12 lg:mb-20">
-        <NavbarHomeLogin />
+        <NavbarHome />
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-5">
             <div className="col-span-1 lg:col-span-3 my-8 lg:my-36">
@@ -54,17 +55,17 @@ export default function Homepage() {
         </div>
       </div>
       {/* section filter */}
-      <div className="font-poppins container mx-auto px-5 mb-12 lg:mb-20 text-sm lg:text-base overflow-x-auto">
+      <div className="font-poppins container mx-auto px-5 text-sm lg:text-base overflow-x-auto">
         <div className="flex lg:justify-center gap-4">
-          <p className="font-semibold border-b-2 w-max text-center border-3F70F9">All</p>
-          <p className="font-md">PC</p>
-          <p className="font-md">Laptop</p>
-          <p className="font-md">Handphone</p>  
-          <p className="font-md">Tablet</p>  
-          <p className="font-md">Accessories</p>
+          <a href="" className="font-semibold border-b-2 w-max text-center border-3F70F9">All</a>
+          <a href="" className="font-md">PC</a>
+          <a href="" className="font-md">Laptop</a>
+          <a href="" className="font-md">Handphone</a>  
+          <a href="" className="font-md">Tablet</a>  
+          <a href="" className="font-md">Accessories</a>
           <select
             id="show"
-            className="form-select"
+            className="form-select cursor-pointer"
             aria-label="Default select example"
           >
           <option value="" className="text-sm" selected>Sort by</option>
@@ -75,7 +76,7 @@ export default function Homepage() {
         </div>
       </div>
       {/* section cards */}
-
+      <Card/>
       {/* section footer */}
       <Footer/>
     </>
