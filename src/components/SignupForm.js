@@ -23,7 +23,9 @@ const SignupForm = ({submitForm}) => {
                     </input>
                     {errors.email && <p className="error">{errors.email}</p>}
                 </div>
-                
+                <div>
+                    <Button def="default" type="loginSignUpSend" onClick={handleFormSubmit} ></Button>
+                </div>
             </form>
             </div>
         </div>
