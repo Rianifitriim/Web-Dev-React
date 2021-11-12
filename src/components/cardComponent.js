@@ -28,7 +28,8 @@ export default function Card(){
                       <p className="text-left md:text-center text-sm sm:text-base text-gray font-semibold mb-2 sm:h-12 max-h-16 line-clamp-2 flex items-center">{product.name}</p>
                       <p className="text-left hidden sm:block text-xs sm:text-base font-normal">Stock: {product.stock}</p>
                       <p className="text-left text-xs sm:text-base font-normal "><StarIcon/>{product.rating}</p>
-                      <p className="text-left text-xs sm:text-base font-normal">Rp {product.price}</p>
+                      <p className="text-left text-xs sm:text-base font-normal">Rp {
+                      new Intl.NumberFormat(['ban', 'id']).format(product.price)}</p>
                       <div className="mt-2 sm:my-2 text-xs sm:text-base">
                         <Button type="cardBuy" def="default">Buy</Button>
                       </div>
