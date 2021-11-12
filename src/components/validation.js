@@ -2,31 +2,31 @@ const validation = (values) => {
   let errors = {};
 
   const namaValidator = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
-  if (!values.nama) {
-    errors.nama = "nama harus diisi";
-  } else if (!values.nama.match(namaValidator)) {
-    errors.nama = "nama harus berisi huruf";
+  if (!values.name) {
+    errors.name = "Name is required";
+  } else if (!values.name.match(namaValidator)) {
+    errors.name = "Name must contain letters";
   }
   if (!values.gender) {
-    errors.gender = "gender harus diisi";
+    errors.gender = "Gender is required";
   }
   if (!values.email) {
-    errors.email = "email is required";
+    errors.email = "Email is required";
   } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-    errors.email = "email is invalid";
+    errors.email = "email invalid";
   }
   const passwordValidator =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^()_-])[A-Za-z\d@$!%*?&#^()_-]{8,}$/;
   if (!values.password) {
-    errors.password = "password harus diisi";
+    errors.password = "Password is required";
   } else if (!values.password.match(passwordValidator)) {
     errors.password =
-      "password harus berisi minimal 8 karakter, huruf besar, huruf kecil, angka, simbol";
+      "password must contain at least 8 characters, uppercase, lowercase, numbers, symbols";
   }
   if (!values.confirmPassword) {
-    errors.confirmPassword = "konfirmasi password harus diisi";
+    errors.confirmPassword = "Confirm password is required";
   } else if (values.password !== values.confirmPassword) {
-    errors.confirmPassword = "konfirmasi password harus sama";
+    errors.confirmPassword = "Confirm password must be the same";
   }
   return errors;
 };
