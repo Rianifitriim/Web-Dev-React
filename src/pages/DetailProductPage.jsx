@@ -16,7 +16,7 @@ export default function DetailProduct(){
           {/* section 1 */}
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="lg:col-span-1">
-              <img src="https://files.fm/thumb_show.php?i=5k8bekcbm"></img>
+              <img className="lg:w-10/12" src="https://files.fm/thumb_show.php?i=5k8bekcbm"></img>
             </div>
             <div className="lg:col-span-1">
               <h3 className="font-extrabold text-xl lg:text-2xl lg:mt-28">ACER  Aspire Vero AV15-51-547X [15.6FHD/i5-1155G7/8GB/512GB/W11+OHS]</h3>
