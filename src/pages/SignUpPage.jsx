@@ -21,10 +21,12 @@ export default function SignUp() {
       [event.target.name]: event.target.value,
     });
   };
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setErrors(validation(values));
   };
+
   //   // Initialize a boolean state
   //   const [passwordShown, setPasswordShown] = useState(false);
 
@@ -40,12 +42,15 @@ export default function SignUp() {
         <NavbarHome />
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-6">
+            {/* kiri */}
             <div className="hidden lg:block lg:col-span-3 my-16 mx-auto">
               <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
                 Lets Get Started!
               </h1>
               <SignUpIcon />
             </div>
+
+            {/* kanan */}
             <div className="col-span-1 lg:col-span-3 my-8 lg:my-16">
               <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
                 Sign Up Now
