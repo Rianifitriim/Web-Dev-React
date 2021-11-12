@@ -1,28 +1,67 @@
-import react from "react";
+import react, { useEffect, useState } from "react";
 import StarIcon from "../icons/StarIcon"
-import Button from "../components/Button"
+import Pagination from "./Pagination";
+import Button from "./Button"
+
 export default function Card(){
-    return(
-        <div className="w-ful">
-    <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 transition-shadow ">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="w-full white shadow-lg rounded-lg sahdow-lg overflow-hidden flex flex-col justify-center items-center transition duration-500 ease-in-out hover:shadow-gray-800 transform hover:-translate-y-1 hover:scale-110">
-                <div>
-                    <img className="object-center object-cover h-auto w-full" src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1168&q=80&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&h=400&q=80" alt="photo"/>
-                </div>
-                <div className="text-center py-8 sm:py-6">
-                    <p className="text-xl text-gray font-semibold mb-2 mx-3">ASUS ROG Zephyrus G14 GA401QH</p>
-                    <p className="text-left text-xl font-normal ml-5 ">Stock: 10</p>
-                    <p className="text-left text-xl font-normal ml-5 my-2">Rating : <StarIcon/>4.5</p>
-                    <p className="text-left text-xl font-normal ml-5 ">Rp.17749000</p>
-                    <div className="mx-4 my-2">
-                        <Button type="cardBuy" def="default">Buy</Button>
+  const [product, setProduct] = useState ([])
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(10);
+
+  
+  useEffect(() => {
+    fetch(" http://localhost:3000/products")
+    .then(response => response.json())
+    .then(data => setProduct(data))
+    .catch(err => console.log(err))
+  },[product])
+  
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = product.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+  return(
+    <div>
+      <div className="w-full">
+        <section className="max-w-5x mx-10 lg:mx-20 my-8 transition-shadow">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-8">
+            {
+              currentPosts ?.map(product => {
+                return (
+                  <div className="w-full white shadow-lg rounded-lg overflow-hidden flex flex-col justify-center transition duration-500 ease-in-out hover:shadow-gray-800 transform hover:-translate-y-1 hover:scale-110">
+                    <div>
+                      <img className="object-scale-down h-auto max-h-32 w-full" src={product.image_url} alt="photo"/>
                     </div>
-                </div>
-            </div>
-            
+                    <div className="py-4 sm:py-6 px-3">
+                      <p className="text-left md:text-center text-sm sm:text-base text-gray font-semibold mb-2 sm:h-12 max-h-16 line-clamp-2 flex items-center">{product.name}</p>
+                      <p className="text-left hidden sm:block text-xs sm:text-base font-normal">Stock: {product.stock}</p>
+                      <p className="text-left text-xs sm:text-base font-normal "><StarIcon/>{product.rating}</p>
+                      <p className="text-left text-xs sm:text-base font-normal">Rp {
+                      new Intl.NumberFormat(['ban', 'id']).format(product.price)}</p>
+                      <div className="mt-2 sm:my-2 text-xs sm:text-base">
+                        <Button type="cardBuy" def="default">Buy</Button>
+                      </div>
+                    </div>
+                  </div> 
+                )
+              })
+            }
+            {/* map */}
+                
+          </div>
+        </section>
+
+        <div className="container mx-auto flex justify-center px-5">
+          <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={product.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
         </div>
-    </section>
-</div>
-    )
+      </div>
+    </div>
+  )
 }

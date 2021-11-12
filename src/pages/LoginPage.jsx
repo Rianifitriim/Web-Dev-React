@@ -35,7 +35,7 @@ export default function LoginPage() {
           </div>
         <div className="min-h-screen flex flex-col">
         <div className="ml-72 text-white lg:text-white max-w-md w-full lg:ml-80 mt-16 mb-24 text-2xl font-bold">Login</div>
-            <div className="ml-24 lg:w-full  bg-B5C5F2 p-8 border border-gray-300 shadow-2xl rounded-2xl ml-5">
+            <div className="ml-24 lg:w-full  bg-B5C5F2 p-8 border border-gray-300 shadow-2xl rounded-2xl">
             <form className="space-y-6 w-96 mx-auto">
                 
                     <div className="name">

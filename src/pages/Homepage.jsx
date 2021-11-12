@@ -4,7 +4,7 @@ import gambar from "../images/gambar.png"
 import Footer from "../layouts/Footer";
 import NavbarHome from "../layouts/NavbarHome"
 import Button from "../components/Button";
-import Card from "../components/cardComponent"
+import Card from "../components/Card"
 
 export default function Homepage() {
 
