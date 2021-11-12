@@ -3,7 +3,7 @@ import validation from "../components/validation";
 import Button from "../components/Button";
 import NavbarHome from "../layouts/NavbarHome";
 import ilustrasilogin from "../images/ilustrasilogin.png"
-export default function LoginForm() {
+export default function LoginPage() {
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -25,7 +25,7 @@ export default function LoginForm() {
   };
   
   return (
-    <div>
+  <div className="container">
     <div className=" h-full bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins">
       <NavbarHome/>
       <div className="flex items-stretch justify-item-center px-54 py-24 bg-gradient-to-r from-primary-100 to-gray-50">
@@ -115,6 +115,6 @@ export default function LoginForm() {
         </div>
         </div>
      
-        </div>
+  </div>
        );
       }
