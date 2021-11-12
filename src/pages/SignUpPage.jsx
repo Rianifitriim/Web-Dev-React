@@ -40,13 +40,13 @@ export default function SignUp() {
         <NavbarHome />
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-6">
-            <div className="hidden lg:block lg:col-span-3 my-16 mx-auto">
+            <div className="hidden lg:block lg:col-span-3 lg:mt-12 mb-16 mx-auto">
               <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
                 Hi, welcome
               </h1>
               <SignUpIcon />
             </div>
-            <div className="col-span-1 lg:col-span-3 my-8 lg:my-16">
+            <div className="col-span-1 lg:col-span-3 my-8 lg:mb-16">
               <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
                 Sign Up Now
               </h1>
@@ -74,7 +74,7 @@ export default function SignUp() {
                     <label className="label text-sm font-bold text-gray-700 block">
                       Gender
                     </label>
-                    <label className="inline-flex items-center label text-sm font-bold text-gray-700 block">
+                    <label className="inline-flex items-center label text-sm font-bold text-gray-700">
                       <input
                         type="radio"
                         className="form-radio"
@@ -84,7 +84,7 @@ export default function SignUp() {
                       />
                       <label className="ml-2 text-xs">Male</label>
                     </label>
-                    <label className="inline-flex items-center ml-4 label text-sm font-bold text-gray-700 block">
+                    <label className="inline-flex items-center ml-4 label text-sm font-bold text-gray-700">
                       <input
                         type="radio"
                         className="form-radio"

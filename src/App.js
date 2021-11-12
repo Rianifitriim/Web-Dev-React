@@ -1,11 +1,13 @@
 import ReactDOM from 'react-dom';
 import Homepage from './pages/Homepage';
+import SignUp from './pages/SignUpPage';
 
 function App() {
   return (
     <div className="App">
      <div>
-      <Homepage/>
+      {/* <Homepage/> */}
+      <SignUp />
      </div>
     </div>
   );
