@@ -14,7 +14,7 @@ export const ButtonType = {
   // untuk button buy di card Home
   cardBuy : "bg-3F70F9 text-white hover:border-blue-500 hover:bg-blue-400 w-full rounded-full",
   // untuk button checkout detail product
-  detailCheckout : "bg-3F70F9 text-white hover:border-blue-500 hover:bg-blue-400 w-full lg:w-1/2 rounded-full",
+  detailCheckout : "bg-3F70F9 text-white hover:border-blue-500 hover:bg-blue-400 w-full lg:w-1/2 rounded-full py-2 capitalize",
   // untuk button checkout page cart 
   cartCheckout : "bg-3F70F9 text-white hover:border-blue-500 hover:bg-blue-400 w-1/2 lg:w-32 rounded-full", 
   // untuk button remove & remove all page cart
