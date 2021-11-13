@@ -3,6 +3,7 @@ import Logo from "../icons/Logo";
 import {CartIconHome} from "../icons/CartIcon";
 import Button from "../components/Button";
 import {SearchHome} from "../components/Search";
+import { Link } from "react-router-dom";
 
 export default function NavbarHome({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
@@ -28,61 +29,61 @@ export default function NavbarHome({ fixed }) {
         >
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
             <li className="nav-item">
-              <a
+              <Link
                 className="px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75"
-                href="#pablo"
+                to="/"
               >
                 <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">home</span>
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className="px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75"
-                href="#pablo"
+                to="/contact"
               >
                 <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Contact</span>
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className="px-3 py-3 md:hidden items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75 grid grid-cols-12"
-                href="#pablo"
+                to="/login"
               >
                 <span className="ml-2 col-span-10">my carts</span>
                 <span className="ml-2 text-white bg-3F70F9 rounded-full p-1 col-span-2 text-center">0</span>
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a
                 className="px-3 py-2 flex items-center uppercase leading-snug hover:opacity-75"
-                href="#pablo"
+                href="#"
               >
               <SearchHome />
               </a>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className="px-3 py-2 lg:flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hidden"
-                href="#pablo"
+                to="/login"
               >
-              <CartIconHome />
-              </a>
+                <CartIconHome />
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
-                href="#pablo"
+                to="/signup"
               >
               <Button def="default" type="navSignUpWhite">Sign up</Button>
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
-                href="#pablo"
+                to="/login"
               >
               <Button def="default" type="navLogin">Login</Button>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

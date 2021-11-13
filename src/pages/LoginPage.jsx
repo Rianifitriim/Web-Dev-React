@@ -34,7 +34,7 @@ export default function LoginPage() {
               <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
                 Hi,Welcome Back!
               </h1>
-              <img className="sm:hidden md:hidden lg:block max-w-xl mr-16 mt-10 flex" src={ilustrasilogin} alt="Photo"/>
+              <img className="hidden mr-16 lg:flex w-11/12" src={ilustrasilogin} alt="Photo"/>
             </div>
             <div className="col-span-1 lg:col-span-3 my-8 lg:my-16">
             <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
