@@ -1,15 +1,21 @@
 import React from "react";
 import jumbotron from "../images/jumbotron.png"
-import NavbarHomeLogin from "../layouts/NavbarHomeLogin"
+import gambar from "../images/gambar.png"
+import Footer from "../layouts/Footer";
+import NavbarHome from "../layouts/NavbarHome"
+import Button from "../components/Button";
+import Card from "../components/Card"
 
 export default function Homepage() {
+
   return (
     <>
-      <div className="bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins mb-32">
-        <NavbarHomeLogin />
+      {/* section jumbotron */}
+      <div className="bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins mb-12 lg:mb-20">
+        <NavbarHome />
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-5">
-            <div className="span-col-12 lg:col-span-3 my-8 lg:my-36">
+            <div className="col-span-1 lg:col-span-3 my-8 lg:my-36">
               <h1 className="font-extrabold text-4xl lg:text-6xl text-white">Gadget Online Shop</h1>
               <p className="text-2xl lg:text-3xl font-thin text-white my-4">Find your favorite gadget in our online shop</p>
               <a href="#" className="text-white text-base lg:text-xl underline"><span>Find here
@@ -22,6 +28,57 @@ export default function Homepage() {
           </div>
         </div>
       </div>
+      {/* section about */}
+      <div className="font-poppins container mx-auto px-5 mb-12 lg:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          <div className="lg:col-span-1">
+            <img src={gambar}></img>
+          </div>
+          <div className="lg:col-span-1">
+            <h3 className="font-extrabold text-2xl lg:text-4xl mt-10">Selling Product Since 2019</h3>
+            <p className="text-sm lg:text-lg font-thin my-6 lg:my-12">Gadget Online Shop is an electronic trading company or often called an online shop. Since its founding in 2009, Gadget Online Shop has transformed into a unicorn that is influential not only in Indonesia but also in Southeast Asia.</p>
+            <div className="grid grid-cols-3">
+              <div className="col-span-1 text-center">
+                <p className="text-md lg:text-2xl font-semibold mr-5">2019</p>
+                <p className="text-xs lg:text-lg font-thin mr-5 capitalize">founded</p>
+              </div>
+              <div className="col-span-1 text-center">
+                <p className="text-md lg:text-2xl font-semibold mr-5">1000+</p>
+                <p className="text-xs lg:text-lg font-thin mr-5 capitalize">products</p>
+              </div>
+              <div className="col-span-1 text-center">
+                <p className="text-md lg:text-2xl font-semibold mr-5">99.9%</p>
+                <p className="text-xs lg:text-lg font-thin mr-5 capitalize">satisfied costumer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* section filter */}
+      <div className="font-poppins container mx-auto px-5 text-sm lg:text-base overflow-x-auto">
+        <div className="flex lg:justify-center gap-4">
+          <a href="" className="font-semibold border-b-2 w-max text-center border-3F70F9">All</a>
+          <a href="" className="font-md">PC</a>
+          <a href="" className="font-md">Laptop</a>
+          <a href="" className="font-md">Handphone</a>  
+          <a href="" className="font-md">Tablet</a>  
+          <a href="" className="font-md">Accessories</a>
+          <select
+            id="show"
+            className="form-select cursor-pointer"
+            aria-label="Default select example"
+          >
+          <option value="" className="text-sm" selected>Sort by</option>
+          <option value="name" className="text-sm">Name</option>
+          <option value="rating" className="text-sm">Rating</option>
+          </select>
+          <Button def="def" type="navLogin">Submit</Button> 
+        </div>
+      </div>
+      {/* section cards */}
+      <Card/>
+      {/* section footer */}
+      <Footer/>
     </>
   );
 }
