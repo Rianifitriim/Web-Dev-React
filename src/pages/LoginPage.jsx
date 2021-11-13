@@ -26,7 +26,7 @@ export default function LoginPage() {
   return (
 
    
-      <div className=" h-full bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins">
+      <div className=" h-screen bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins">
         <NavbarHome />
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-6">
@@ -34,33 +34,15 @@ export default function LoginPage() {
               <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
                 Hi,Welcome Back!
               </h1>
-              <img className="sm:hidden md:hidden lg:block max-w-4xl mx-auto  mt-4 flex" src={ilustrasilogin} alt="Photo"/>
+              <img className="sm:hidden md:hidden lg:block max-w-xl mr-16 mt-10 flex" src={ilustrasilogin} alt="Photo"/>
             </div>
             <div className="col-span-1 lg:col-span-3 my-8 lg:my-16">
-              <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
-                Login
-              </h1>
-              <div className="w-full mx-auto lg:w-8/12 mt-20 bg-B5C5F2 p-8 border border-gray-300 shadow-2xl rounded-2xl">
+            <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
+            Login
+          </h1>
+              <div className="w-10/12 mx-auto lg:w-6/12 mt-10 bg-B5C5F2 p-8 border border-gray-300 shadow-2xl rounded-2xl">
                 {/* form */}
                 <form className=" w-full mx-auto">
-                  {/* name */}
-                  <div>
-                    <label className="label text-sm font-bold text-gray-700 block">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="input text-xs w-full p-2 border border-gray-300 rounded mt-1 hover:border-blue-600"
-                      value={values.name}
-                      onChange={handleChange}
-                      placeholder="Enter Your Name"
-                    ></input>
-                    <div className="text-xs text-red-600	">
-                      {errors.name && <p className="error">{errors.name}</p>}
-                    </div>
-                  </div>
-
                   {/* email */}
                   <div className="mt-3">
                     <label className="label text-sm font-bold text-gray-700 block">
@@ -117,8 +99,7 @@ export default function LoginPage() {
                   </div>
                   <div className="text-center my-3">
                 <a
-              className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                  >
+              className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800">
               Forgot your Password?
                 </a>
             </div>
