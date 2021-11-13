@@ -24,6 +24,7 @@ export default function LoginPage() {
   };
   
   return (
+
    
       <div className=" h-full bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins">
         <NavbarHome />
