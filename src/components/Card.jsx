@@ -2,13 +2,13 @@ import react, { useEffect, useState } from "react";
 import StarIcon from "../icons/StarIcon"
 import Pagination from "./Pagination";
 import Button from "./Button"
+import { Link } from 'react-router-dom';
 
 export default function Card(){
   const [product, setProduct] = useState ([])
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
 
-  
   useEffect(() => {
     fetch(" http://localhost:3000/products")
     .then(response => response.json())
@@ -40,9 +40,9 @@ export default function Card(){
                       <p className="text-left text-xs sm:text-base font-normal "><StarIcon/>{product.rating}</p>
                       <p className="text-left text-xs sm:text-base font-normal">Rp {
                       new Intl.NumberFormat(['ban', 'id']).format(product.price)}</p>
-                      <div className="mt-2 sm:my-2 text-xs sm:text-base">
-                        <Button type="cardBuy" def="default">Buy</Button>
-                      </div>
+                      <Link className="mt-2 sm:my-2 text-xs sm:text-base" to={`/detailproduct/${product.id}`}>
+                        <Button type="cardBuy" def="default">Detail</Button>
+                      </Link>
                     </div>
                   </div> 
                 )
