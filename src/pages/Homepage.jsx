@@ -55,8 +55,6 @@ export default function Homepage() {
           </div>
         </div>
       </div>
-      {/* section filter */}
-      <ProductFilter/>
       {/* section cards */}
       <Card/>
       {/* section footer */}
