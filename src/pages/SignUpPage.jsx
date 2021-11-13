@@ -21,10 +21,12 @@ export default function SignUp() {
       [event.target.name]: event.target.value,
     });
   };
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setErrors(validation(values));
   };
+
   //   // Initialize a boolean state
   //   const [passwordShown, setPasswordShown] = useState(false);
 
@@ -40,33 +42,41 @@ export default function SignUp() {
         <NavbarHome />
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-6">
-            <div className="hidden lg:block lg:col-span-3 lg:mt-12 mb-16 mx-auto">
+
+            {/* kiri */}
+            <div className="hidden lg:block lg:col-span-3 my-16 mx-auto"
+
               <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
-                Hi, welcome
+                Lets Get Started!
               </h1>
               <SignUpIcon />
             </div>
-            <div className="col-span-1 lg:col-span-3 my-8 lg:mb-16">
+
+
+            {/* kanan */}
+            <div className="col-span-1 lg:col-span-3 my-8 lg:my-16">
               <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
                 Sign Up Now
               </h1>
               <div className="w-full mx-auto lg:w-8/12 mt-4 bg-B5C5F2 p-8 border border-gray-300 shadow-2xl rounded-2xl">
                 {/* form */}
                 <form className=" w-full mx-auto">
-                  {/* nama */}
+                  {/* name */}
                   <div>
                     <label className="label text-sm font-bold text-gray-700 block">
                       Name
                     </label>
                     <input
                       type="text"
-                      name="nama"
+                      name="name"
                       className="input text-xs w-full p-2 border border-gray-300 rounded mt-1 hover:border-blue-600"
-                      value={values.nama}
+                      value={values.name}
                       onChange={handleChange}
                       placeholder="Enter Your Name"
                     ></input>
-                    {errors.nama && <p className="error">{errors.nama}</p>}
+                    <div className="text-xs text-red-600	">
+                      {errors.name && <p className="error">{errors.name}</p>}
+                    </div>
                   </div>
 
                   {/* gender */}
@@ -94,7 +104,11 @@ export default function SignUp() {
                       />
                       <label className="ml-2 text-xs">Female</label>
                     </label>
-                    {errors.gender && <p className="error">{errors.gender}</p>}
+                    <div className="text-xs text-red-600	">
+                      {errors.gender && (
+                        <p className="error">{errors.gender}</p>
+                      )}
+                    </div>
                   </div>
 
                   {/* email */}
@@ -110,7 +124,9 @@ export default function SignUp() {
                       onChange={handleChange}
                       placeholder="Enter Your Email"
                     ></input>
-                    {errors.email && <p className="error">{errors.email}</p>}
+                    <div className="text-xs text-red-600	">
+                      {errors.email && <p className="error">{errors.email}</p>}
+                    </div>
                   </div>
 
                   {/* password */}
@@ -127,9 +143,11 @@ export default function SignUp() {
                       placeholder="Enter Your Password"
                     ></input>
                     {/* <button onClick={togglePassword}>Show Password</button> */}
-                    {errors.password && (
-                      <p className="error">{errors.password}</p>
-                    )}
+                    <div className="text-xs text-red-600	">
+                      {errors.password && (
+                        <p className="error">{errors.password}</p>
+                      )}
+                    </div>
                   </div>
 
                   {/* confir password */}
@@ -145,9 +163,12 @@ export default function SignUp() {
                       onChange={handleChange}
                       placeholder="Enter Your Confirm Password"
                     ></input>
-                    {errors.confirmPassword && (
-                      <p className="error">{errors.confirmPassword}</p>
-                    )}
+
+                    <div className="text-xs text-red-600	">
+                      {errors.confirmPassword && (
+                        <p className="error">{errors.confirmPassword}</p>
+                      )}
+                    </div>
                   </div>
 
                   {/* submit */}
