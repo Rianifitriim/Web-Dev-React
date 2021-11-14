@@ -38,7 +38,7 @@ export default function SignUp() {
   //   };
   return (
     <div>
-      <div className="bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins mb-12 lg:mb-20">
+      <div className="bg-gradient-to-r h-screen from-3F70F9 via-4C79F9 to-69BAEC font-poppins mb-12 lg:mb-20">
         <NavbarHome />
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-6">
