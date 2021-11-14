@@ -4,9 +4,11 @@ import {CartIcon} from "../icons/CartIcon";
 import Button from "../components/Button";
 import {Search} from "../components/Search";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function NavbarLogin({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
+  const state = useSelector((state)=>state.handleCart)
   return (
     <>
       <nav className="font-poppins sticky top-0 inset-x-0 z-50 flex flex-wrap items-center justify-between px-2 pt-2 pb-1 bg-B5C5F2 mb-3">
@@ -67,7 +69,7 @@ export default function NavbarLogin({ fixed }) {
                   to="/cart"
                 >
                   <span className="ml-2 col-span-10">my carts</span>
-                  <span className="ml-1 text-white bg-3F70F9 rounded-full p-1 text-center">0</span>
+                  <span className="ml-1 text-white bg-3F70F9 rounded-full p-1 text-center">{state.length}</span>
                 </Link>
               </li>
               <li className="nav-item">
@@ -76,6 +78,7 @@ export default function NavbarLogin({ fixed }) {
                   to="/cart"
                 >
                 <CartIcon />
+                <span className="inline-block text-black">{state.length}</span>
                 </Link>
               </li>
               <li className="nav-item">
