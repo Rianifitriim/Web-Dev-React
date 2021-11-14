@@ -41,6 +41,7 @@ export default function SignUp() {
     <div>
       <div className="bg-gradient-to-r h-screen from-3F70F9 via-4C79F9 to-69BAEC font-poppins">
         <NavbarHome />
+
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-6">
             {/* kiri */}
@@ -50,6 +51,7 @@ export default function SignUp() {
               </h1>
               <SignUpIcon />
             </div>
+
             {/* kanan */}
             <div className="col-span-1 lg:col-span-3 my-8 lg:my-16">
               <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
