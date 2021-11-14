@@ -31,7 +31,7 @@ export default function NavbarLogin({ fixed }) {
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="nav-item">
                 <a
-                  className="px-3 py-3 lg:hidden items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75 flex"
+                  className="lg:px-3 py-3 lg:hidden items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75 flex"
                   href="#"
                 >
                   <i className="text-lg leading-lg text-black opacity-75"></i><span className="ml-2">hi, user </span>
@@ -39,7 +39,7 @@ export default function NavbarLogin({ fixed }) {
               </li>
               <li className="nav-item">
                 <Link
-                  className="px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75"
+                  className="lg:px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75"
                   to="/"
                 >
                   <i className="text-lg leading-lg text-black opacity-75"></i><span className="ml-2">home</span>
@@ -47,7 +47,7 @@ export default function NavbarLogin({ fixed }) {
               </li>
               <li className="nav-item">
                 <Link
-                  className="px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75"
+                  className="lg:px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75"
                   to="/contact"
                 >
                   <i className="text-lg leading-lg text-black opacity-75"></i><span className="ml-2">Contact</span>
@@ -55,24 +55,16 @@ export default function NavbarLogin({ fixed }) {
               </li>
               <li className="nav-item">
                 <Link
-                  className="px-3 py-3 md:hidden items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75 grid grid-cols-12"
+                  className="lg:px-3 py-3 md:hidden items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75 grid grid-cols-12"
                   to="/cart"
                 >
                   <span className="ml-2 col-span-10">my carts</span>
-                  <span className="ml-2 text-white bg-3F70F9 rounded-full p-1 col-span-2 text-center">0</span>
+                  <span className="ml-1 text-white bg-3F70F9 rounded-full p-1 text-center">0</span>
                 </Link>
               </li>
               <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#"
-                >
-                <Search />
-                </a>
-              </li>
-              <li className="nav-item">
                 <Link
-                  className="px-3 py-2 lg:flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hidden"
+                  className="lg:px-3 py-2 lg:flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hidden"
                   to="/cart"
                 >
                 <CartIcon />
@@ -80,7 +72,7 @@ export default function NavbarLogin({ fixed }) {
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-3 lg:flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75 hidden"
+                  className="lg:px-3 py-3 lg:flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75 hidden"
                   href="#"
                 >
                   <i className="text-lg leading-lg text-black opacity-75"></i><span className="ml-2">hi, user </span>
@@ -88,7 +80,7 @@ export default function NavbarLogin({ fixed }) {
               </li>
               <li className="nav-item">
                 <Link
-                  className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
+                  className="lg:px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
                   to="/"
                 >
                 <Button def="default" type="navLogin">logout</Button>
