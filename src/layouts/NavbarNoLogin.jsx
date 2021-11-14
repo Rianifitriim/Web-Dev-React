@@ -31,48 +31,41 @@ export default function Navbar({ fixed }) {
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="nav-item">
                 <Link
-                  className="px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75"
+                  className="lg:px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75"
                   to="/"
                 >
-                  <i className="text-lg leading-lg text-black opacity-75"></i><span className="ml-2">home</span>
+                  <i className="lg:text-lg leading-lg text-black opacity-75"></i><span className="ml-2">home</span>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link
-                  className="px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75"
+                  className="lg:px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75"
                   to="/contact"
                 >
                   <i className="text-lg leading-lg text-black opacity-75"></i><span className="ml-2">Contact</span>
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item w-full lg:w-auto">
                 <Link
-                  className="px-3 py-3 md:hidden items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75 grid grid-cols-12"
+                  className="lg:px-3 py-3 md:hidden items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75 grid grid-cols-12"
                   to="/login"
                 >
-                  <span className="ml-2 col-span-10">my carts</span>
-                  <span className="ml-2 text-white bg-3F70F9 rounded-full p-1 col-span-2 text-center">0</span>
+                  <span className="ml-2 col-span-10">my carts
+                  </span>
+                  <span className="ml-1 text-white bg-3F70F9 rounded-full p-1 text-center ">0</span>
                 </Link>
               </li>
               <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
-                >
-                <Search />
-                </a>
-              </li>
-              <li className="nav-item">
                 <Link
-                  className="px-3 py-2 lg:flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hidden"
-                  href="/login"
+                  className="lg:px-3 py-2 lg:flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hidden"
+                  to="/login"
                 >
                 <CartIcon />
                 </Link>
               </li>
               <li className="nav-item">
                 <Link
-                  className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
+                  className="lg:px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
                   href="/signup"
                 >
                 <Button def="default" type="navSignUpBlue">Sign up</Button>
@@ -80,7 +73,7 @@ export default function Navbar({ fixed }) {
               </li>
               <li className="nav-item">
                 <Link
-                  className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
+                  className="lg:px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
                   href="/login"
                 >
                 <Button def="default" type="navLogin">Login</Button>

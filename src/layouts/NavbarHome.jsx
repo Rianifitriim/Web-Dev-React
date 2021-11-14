@@ -2,7 +2,6 @@ import React from "react";
 import Logo from "../icons/Logo";
 import {CartIconHome} from "../icons/CartIcon";
 import Button from "../components/Button";
-import {SearchHome} from "../components/Search";
 import { Link } from "react-router-dom";
 
 export default function NavbarHome({ fixed }) {
@@ -30,7 +29,7 @@ export default function NavbarHome({ fixed }) {
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
             <li className="nav-item">
               <Link
-                className="px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75"
+                className="lg:px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75"
                 to="/"
               >
                 <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">home</span>
@@ -38,32 +37,24 @@ export default function NavbarHome({ fixed }) {
             </li>
             <li className="nav-item">
               <Link
-                className="px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75"
+                className="lg:px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75"
                 to="/contact"
               >
                 <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Contact</span>
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item w-72 lg:w-auto">
               <Link
-                className="px-3 py-3 md:hidden items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75 grid grid-cols-12"
+                className="lg:px-3 py-3 lg:hidden items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75 grid grid-cols-12"
                 to="/login"
               >
                 <span className="ml-2 col-span-10">my carts</span>
-                <span className="ml-2 text-white bg-3F70F9 rounded-full p-1 col-span-2 text-center">0</span>
+                <span className="ml-1 text-white bg-3F70F9 rounded-full p-1 text-center">0</span>
               </Link>
             </li>
             <li className="nav-item">
-              <a
-                className="px-3 py-2 flex items-center uppercase leading-snug hover:opacity-75"
-                href="#"
-              >
-              <SearchHome />
-              </a>
-            </li>
-            <li className="nav-item">
               <Link
-                className="px-3 py-2 lg:flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hidden"
+                className="lg:px-3 py-2 lg:flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hidden"
                 to="/login"
               >
                 <CartIconHome />
@@ -71,7 +62,7 @@ export default function NavbarHome({ fixed }) {
             </li>
             <li className="nav-item">
               <Link
-                className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
+                className="lg:px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
                 to="/signup"
               >
               <Button def="default" type="navSignUpWhite">Sign up</Button>
@@ -79,7 +70,7 @@ export default function NavbarHome({ fixed }) {
             </li>
             <li className="nav-item">
               <Link
-                className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
+                className="lg:px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
                 to="/login"
               >
               <Button def="default" type="navLogin">Login</Button>
