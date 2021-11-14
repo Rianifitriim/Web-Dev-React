@@ -27,7 +27,10 @@ const validation = (values) => {
     errors.confirmPassword = "Confirm password is required";
   } else if (values.password !== values.confirmPassword) {
     errors.confirmPassword = "Confirm password must be the same";
+  }if (!values.message) {
+    errors.message = "Message is required";
   }
+
   return errors;
 };
 export default validation;

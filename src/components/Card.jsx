@@ -1,28 +1,120 @@
-import react from "react";
+import react, { useEffect, useState } from "react";
 import StarIcon from "../icons/StarIcon"
-import Button from "../components/Button"
+import Pagination from "./Pagination";
+import Button from "./Button"
+import { Link } from 'react-router-dom';
+
 export default function Card(){
-    return(
-        <div className="w-ful">
-    <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 transition-shadow ">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="w-full white shadow-lg rounded-lg sahdow-lg overflow-hidden flex flex-col justify-center items-center transition duration-500 ease-in-out hover:shadow-gray-800 transform hover:-translate-y-1 hover:scale-110">
-                <div>
-                    <img className="object-center object-cover h-auto w-full" src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1168&q=80&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&h=400&q=80" alt="photo"/>
-                </div>
-                <div className="text-center py-8 sm:py-6">
-                    <p className="text-xl text-gray font-semibold mb-2 mx-3">ASUS ROG Zephyrus G14 GA401QH</p>
-                    <p className="text-left text-xl font-normal ml-5 ">Stock: 10</p>
-                    <p className="text-left text-xl font-normal ml-5 my-2">Rating : <StarIcon/>4.5</p>
-                    <p className="text-left text-xl font-normal ml-5 ">Rp.17749000</p>
-                    <div className="mx-4 my-2">
-                        <Button type="cardBuy" def="default">Buy</Button>
-                    </div>
-                </div>
-            </div>
-            
+  const [product, setProduct] = useState ([])
+  const [loading, setLoading] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(10);
+  const [filter, setFilter] = useState(product)
+  // const [isActive, setIsActive] = useState('font-md')
+
+  let componentMounted = true
+
+  useEffect(() => {
+    const getProducts = async () => {
+      setLoading(true)
+      const response = await fetch("http://localhost:3000/products")
+      if(componentMounted) {
+        setProduct(await response.clone().json())
+        setFilter(await response.json())
+        setLoading(false)
+      }
+      return () => {
+        componentMounted = false
+      }
+    }
+    getProducts()
+  },[])
+  
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = filter.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+  const filterProduct = (cat) => {
+    const updatedList = product
+    .filter((x)=>x.category === String(cat))
+    setFilter(updatedList)
+    // setIsActive('font-semibold border-b-2 w-max text-center border-3F70F9')
+  }
+  
+  const Loading = () => {
+    return (
+      <p className="font-poppins font-bold container mx-auto px-5 my-5 text-sm lg:text-base text-center">Loading...</p>
+      )
+    }
+    
+    const ShowProducts = () => {
+      const [clicked, setClicked] = useState(false)
+      return (
+      <div className="font-poppins container mx-auto px-5 text-sm lg:text-base">
+        <div className="flex lg:justify-center gap-4 overflow-x-auto">
+          <button className='font-md border-b-2 hover:border-3F70F9' onClick = {() => setFilter(product)}>All</button>
+          <button className='font-md border-b-2 hover:border-3F70F9' onClick = {() => filterProduct("PC")}>PC</button>
+          <button className='font-md border-b-2 hover:border-3F70F9' onClick = {() => filterProduct("laptop")}>Laptop</button>
+          <button className='font-md border-b-2 hover:border-3F70F9' onClick = {() => filterProduct("handphone")}>Handphone</button>  
+          <button className='font-md border-b-2 hover:border-3F70F9' onClick = {() => filterProduct("tablet")}>Tablet</button>  
+          <button className='font-md border-b-2 hover:border-3F70F9' onClick = {() => filterProduct("accessories")}>Accessories</button>
+          <select
+            id="show"
+            className="form-select cursor-pointer"
+            aria-label="Default select example"
+          >
+          <option value="" className="text-sm" selected>Sort by</option>
+          <option value="name" className="text-sm">Name</option>
+          <option value="rating" className="text-sm">Rating</option>
+          </select>
+          <Button def="def" type="navLogin">Submit</Button> 
         </div>
-    </section>
-</div>
+        <div className="w-full">
+        <section className="max-w-5x mx-5 lg:mx-12 my-8 transition-shadow">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-8">
+            {
+              currentPosts ?.map(product => {
+                return (
+                  <div className="w-full white shadow-lg rounded-lg overflow-hidden flex flex-col justify-center transition duration-500 ease-in-out hover:shadow-gray-800 transform hover:-translate-y-1 hover:scale-110">
+                    <div>
+                      <img className="object-scale-down h-auto max-h-32 w-full" src={product.image_url} alt="photo"/>
+                    </div>
+                    <div className="py-4 sm:py-6 px-3">
+                      <p className="text-left md:text-center text-sm sm:text-base text-gray font-semibold mb-2 sm:h-12 max-h-16 line-clamp-2 flex items-center">{product.name}</p>
+                      <p className="text-left hidden sm:block text-xs sm:text-base font-normal">Stock: {product.stock}</p>
+                      <p className="text-left text-xs sm:text-base font-normal "><StarIcon/>{product.rating}</p>
+                      <p className="text-left text-xs sm:text-base font-normal">Rp {
+                      new Intl.NumberFormat(['ban', 'id']).format(product.price)}</p>
+                      <Link className="mt-2 sm:my-2 text-xs sm:text-base" to={`/detailproduct/${product.id}`}>
+                        <Button type="cardBuy" def="default">Detail</Button>
+                      </Link>
+                    </div>
+                  </div> 
+                )
+              })
+            }
+            {/* map */}
+                
+          </div>
+        </section>
+
+        <div className="container mx-auto flex justify-center px-5 lg:px-0">
+          <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={filter.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
+        </div>
+        </div>
+      </div>
     )
+  }
+  return(
+    <div>
+      {loading ? <Loading /> : <ShowProducts />}
+    </div>
+  )
 }

@@ -3,6 +3,7 @@ import validation from "../components/validation";
 import Button from "../components/Button";
 import NavbarHome from "../layouts/NavbarHome";
 import SignUpIcon from "../icons/SignUpIcon";
+import { Link } from "react-router-dom";
 
 export default function SignUp() {
   const [values, setValues] = useState({
@@ -27,18 +28,18 @@ export default function SignUp() {
     setErrors(validation(values));
   };
 
-  //   // Initialize a boolean state
-  //   const [passwordShown, setPasswordShown] = useState(false);
+  // // Initialize a boolean state
+  // const [passwordShown, setPasswordShown] = useState(false);
 
-  //   // Password toggle handler
-  //   const togglePassword = () => {
-  //     // When the handler is invoked
-  //     // inverse the boolean state of passwordShown
-  //     setPasswordShown(true);
-  //   };
+  // // Password toggle handler
+  // const togglePassword = () => {
+  // // When the handler is invoked
+  // // inverse the boolean state of passwordShown
+  // setPasswordShown(true);
+  // };
   return (
     <div>
-      <div className="bg-gradient-to-r h-screen from-3F70F9 via-4C79F9 to-69BAEC font-poppins mb-12 lg:mb-20">
+      <div className="bg-gradient-to-r h-screen from-3F70F9 via-4C79F9 to-69BAEC font-poppins">
         <NavbarHome />
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-6">
@@ -49,7 +50,6 @@ export default function SignUp() {
               </h1>
               <SignUpIcon />
             </div>
-
             {/* kanan */}
             <div className="col-span-1 lg:col-span-3 my-8 lg:my-16">
               <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
@@ -81,7 +81,7 @@ export default function SignUp() {
                     <label className="label text-sm font-bold text-gray-700 block">
                       Gender
                     </label>
-                    <label className="inline-flex items-center label text-sm font-bold text-gray-700 block">
+                    <label className="inline-flex items-center label text-sm font-bold text-gray-700">
                       <input
                         type="radio"
                         className="form-radio"
@@ -91,7 +91,7 @@ export default function SignUp() {
                       />
                       <label className="ml-2 text-xs">Male</label>
                     </label>
-                    <label className="inline-flex items-center ml-4 label text-sm font-bold text-gray-700 block">
+                    <label className="inline-flex items-center ml-4 label text-sm font-bold text-gray-700">
                       <input
                         type="radio"
                         className="form-radio"
@@ -159,8 +159,7 @@ export default function SignUp() {
                       value={values.confirmPassword}
                       onChange={handleChange}
                       placeholder="Enter Your Confirm Password"
-                    ></input>
-
+                    ></input>{" "}
                     <div className="text-xs text-red-600	">
                       {errors.confirmPassword && (
                         <p className="error">{errors.confirmPassword}</p>
@@ -178,16 +177,15 @@ export default function SignUp() {
                       Sign Up
                     </Button>
                   </div>
-
                   <div className="text-center lg:flex lg:justify-center mt-4">
                     <p className="inline-block text-sm text-black-500">
                       already have an account?
-                      <a
+                      <Link
                         className="px-2 inline-block text-sm text-blue-500 hover:text-blue-800"
-                        href="./login"
+                        to="/login"
                       >
-                        Log In
-                      </a>
+                        Login
+                      </Link>
                     </p>
                   </div>
                 </form>
