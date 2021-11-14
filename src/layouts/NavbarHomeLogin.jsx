@@ -44,6 +44,14 @@ export default function NavbarHome({ fixed }) {
                 <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">home</span>
               </Link>
             </li>
+            <li className="nav-item active">
+              <Link
+                className="lg:px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75"
+                to="/product"
+              >
+                <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">product</span>
+              </Link>
+            </li>
             <li className="nav-item">
               <Link
                 className="lg:px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75"

@@ -37,6 +37,14 @@ export default function Navbar({ fixed }) {
                   <i className="lg:text-lg leading-lg text-black opacity-75"></i><span className="ml-2">home</span>
                 </Link>
               </li>
+              <li>
+                <Link
+                  className="lg:px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75"
+                  to="/product"
+                >
+                  <i className="lg:text-lg leading-lg text-black opacity-75"></i><span className="ml-2">product</span>
+                </Link>
+              </li>
               <li className="nav-item">
                 <Link
                   className="lg:px-3 py-3 flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75"
