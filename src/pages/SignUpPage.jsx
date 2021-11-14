@@ -3,6 +3,7 @@ import validation from "../components/validation";
 import Button from "../components/Button";
 import NavbarHome from "../layouts/NavbarHome";
 import SignUpIcon from "../icons/SignUpIcon";
+import { Link } from "react-router-dom";
 
 export default function SignUp() {
 const [values, setValues] = useState({
@@ -38,7 +39,7 @@ setErrors(validation(values));
 // };
 return (
 <div>
-  <div className="bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins mb-12 lg:mb-20">
+  <div className="bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins">
     <NavbarHome />
     <div className="container mx-auto px-5">
       <div className="grid grid-cols-1 lg:grid-cols-6">
@@ -144,10 +145,10 @@ return (
               </div>
               <div className="text-center lg:flex lg:justify-center mt-4">
                 <p className="inline-block text-sm text-black-500">
-                  already have an account?
-                  <a className="px-2 inline-block text-sm text-blue-500 hover:text-blue-800" href="./login">
-                    Log In
-                  </a>
+                already have an account?
+                  <Link className="px-2 inline-block text-sm text-blue-500 hover:text-blue-800" to="/login">
+                    Login
+                  </Link>
                 </p>
               </div>
             </form>
