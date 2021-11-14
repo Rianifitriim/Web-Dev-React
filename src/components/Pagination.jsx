@@ -29,7 +29,7 @@ export default function Pagination({
         </p>
       </div>
       <nav className='block'>
-        <ul className='flex pl-0 rounded list-none flex-wrap'>
+        <ul className='flex pl-0 rounded list-none flex-wrap justify-center'>
           <li>
             {pageNumbers.map((number) => (
               <a
