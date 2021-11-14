@@ -13,8 +13,10 @@ export const ButtonType = {
   loginSignUpSend : "bg-3F70F9 text-white hover:border-blue-500 hover:bg-blue-400 w-full rounded", 
   // untuk button buy di card Home
   cardBuy : "bg-3F70F9 text-white hover:border-blue-500 hover:bg-blue-400 w-full rounded-full",
-  // untuk button checkout detail product
-  detailCheckout : "bg-3F70F9 text-white hover:border-blue-500 hover:bg-blue-400 w-full lg:w-1/2 rounded-full py-2 capitalize",
+  // untuk button go to cart detail product
+  detailGo : "bg-3F70F9 text-white hover:border-blue-500 hover:bg-blue-400 w-full rounded-full py-2 px-3 capitalize",
+  // untuk button add to cart detail product
+  detailAdd : "text-blue-500 border-2 border-blue-500 hover:bg-blue-300 hover:text-white w-full rounded-full py-2 px-3 capitalize",
   // untuk button checkout page cart 
   cartCheckout : "bg-3F70F9 text-white hover:border-blue-500 hover:bg-blue-400 w-1/2 lg:w-32 rounded-full py-2 capitalize", 
   // untuk button remove & remove all page cart

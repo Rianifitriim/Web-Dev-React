@@ -37,16 +37,12 @@ export default function DetailProduct(){
               <h3 className="font-extrabold text-xl lg:text-2xl lg:mt-28">{product.name}</h3>
               <div className="my-2 capitalize">stock : {product.stock}</div>
               <div className="my-2"><StarIcon/>{product.rating}</div>
-              <p className="mb-6">Rp {new Intl.NumberFormat(['ban', 'id']).format(product.price)}</p>
-              <div className="inline-block">
-                <IncDec>-</IncDec>
+              <p className="mb-6 font-bold text-lg lg:xl">Rp {new Intl.NumberFormat(['ban', 'id']).format(product.price)}</p>
+              <div className="inline-block capitalize mb-12">
+                <Button def="def" type="detailAdd">add to cart</Button>
               </div>
-              <span className="inline-block px-6"> 0 </span>
-              <div className="inline-block">
-                <IncDec>+</IncDec>
-              </div>
-              <div className="mt-6 capitalize mb-12">
-                <Button def="def" type="detailCheckout">checkout</Button>
+              <div className="inline-block capitalize mb-12 pl-3">
+                <Button def="def" type="detailGo">go to cart</Button>
               </div>
             </div>
           </div>
