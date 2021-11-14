@@ -3,6 +3,7 @@ import validation from "../components/validation";
 import Button from "../components/Button";
 import NavbarHome from "../layouts/NavbarHome";
 import ilustrasilogin from "../images/ilustrasilogin.png"
+import { Link } from "react-router-dom";
 export default function LoginPage() {
   const [values, setValues] = useState({
     name: "",
@@ -105,13 +106,13 @@ export default function LoginPage() {
             </div>
                   <div className="text-center lg:flex lg:justify-center mt-4">
                     <p className="inline-block text-sm text-black-500">
-                      already have an account?
-                      <a
+                      don't have an account yet?
+                      <Link
                         className="px-2 inline-block text-sm text-blue-500 hover:text-blue-800"
-                        href="./login"
+                        to="/signup"
                       >
-                        Log In
-                      </a>
+                        Register
+                      </Link>
                     </p>
                   </div>
                 </form>
