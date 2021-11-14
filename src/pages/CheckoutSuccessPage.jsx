@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NavbarLogin from "../layouts/NavbarLogin";
 import Footer from "../layouts/Footer";
 import Checkout from "../images/Checkout.png";
+import { Link } from "react-router-dom";
 
 export default function CheckoutSuccess() {
   return (
@@ -24,9 +25,9 @@ export default function CheckoutSuccess() {
                   Woohoo your payment sucessfully and your order is complete.
                 </p>
                 <br />
-                <a href="" className="text-md underline">
+                <Link to="/" className="text-md underline">
                   Back to Homepage
-                </a>
+                </Link>
               </div>
             </div>
           </div>

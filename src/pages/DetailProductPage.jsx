@@ -5,11 +5,19 @@ import StarIcon from "../icons/StarIcon";
 import Footer from "../layouts/Footer";
 import NavbarLogin from "../layouts/NavbarLogin";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addCart } from "../redux/action";
 
 
 export default function DetailProduct(){
 
   const [product, setProduct] = useState ([])
+
+  const dispatch = useDispatch()
+  const addProduct = (product) => {
+    dispatch(addCart(product))
+  }
 
   useEffect(() => {
     fetch(" http://localhost:3000/products")
@@ -19,8 +27,6 @@ export default function DetailProduct(){
   },[product])
 
   let { id } = useParams();
-
-  // const deskripsi = (product.desc).split("\n")
 
     return(
       <>
@@ -39,11 +45,11 @@ export default function DetailProduct(){
               <div className="my-2"><StarIcon/>{product.rating}</div>
               <p className="mb-6 font-bold text-lg lg:xl">Rp {new Intl.NumberFormat(['ban', 'id']).format(product.price)}</p>
               <div className="inline-block capitalize mb-12">
-                <Button def="def" type="detailAdd">add to cart</Button>
+                <Button def="def" type="detailAdd" onClick={() => addProduct(product)}>add to cart</Button>
               </div>
-              <div className="inline-block capitalize mb-12 pl-3">
+              <Link to = "/cart" className="inline-block capitalize mb-12 pl-3">
                 <Button def="def" type="detailGo">go to cart</Button>
-              </div>
+              </Link>
             </div>
           </div>
 

@@ -4,9 +4,11 @@ import {CartIconHome} from "../icons/CartIcon";
 import Button from "../components/Button";
 import {SearchHome} from "../components/Search";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function NavbarHome({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
+  const state = useSelector((state)=>state.handleCart)
   return (
     <nav className="font-poppins sticky top-0 inset-x-0 z-50 flex flex-wrap items-center justify-between px-2 pt-2 pb-1 mb-3 bg-transparent">
       <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
@@ -66,7 +68,7 @@ export default function NavbarHome({ fixed }) {
                 href="/cart"
               >
                 <span className="ml-2 col-span-10">my carts</span>
-                <span className="ml-1 text-white bg-3F70F9 rounded-full p-1 text-center">0</span>
+                <span className="ml-1 text-white bg-3F70F9 rounded-full p-1 text-center">{state.length}</span>
               </Link>
             </li>
             <li className="nav-item">
@@ -75,6 +77,7 @@ export default function NavbarHome({ fixed }) {
                 to="/cart"
               >
               <CartIconHome />
+              <span className="inline-block text-white">{state.length}</span>
               </Link>
             </li>
             <li className="nav-item">
