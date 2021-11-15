@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NavbarLogin from "../layouts/NavbarLogin";
 import Footer from "../layouts/Footer";
 import Checkout from "../images/Checkout.png";

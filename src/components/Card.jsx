@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import StarIcon from "../icons/StarIcon"
 import Pagination from "./Pagination";
 import Button from "./Button"
@@ -75,7 +75,7 @@ export default function Card(){
         <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-8">
           {
             currentPosts ?.filter(product => {
-              if (search == "") {
+              if (search === "") {
                 return product
               } else if (product.name.toLowerCase().includes(search.toLowerCase())){
                 return product
@@ -84,7 +84,7 @@ export default function Card(){
               return (
                 <div className="w-full white shadow-lg rounded-lg overflow-hidden flex flex-col justify-center transition duration-500 ease-in-out hover:shadow-gray-800 transform hover:-translate-y-1 hover:scale-110" key={product.id}>
                   <div>
-                    <img className="object-scale-down h-auto max-h-32 w-full" src={product.image_url} alt="photo"/>
+                    <img className="object-scale-down h-auto max-h-32 w-full" src={product.image_url} alt="gambar"/>
                   </div>
                   <div className="py-4 sm:py-6 px-3">
                     <p className="text-left md:text-center text-sm sm:text-base text-gray font-semibold mb-2 sm:h-12 max-h-16 line-clamp-2 flex items-center">{product.name}</p>

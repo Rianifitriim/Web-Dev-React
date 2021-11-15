@@ -22,10 +22,3 @@ export const ButtonType = {
   // untuk button remove & remove all page cart
   cartRemove : "bg-transparent text-3F70F9 border border-3F70F9 hover:bg-blue-100 w-1/2 lg:w-32 rounded-full py-1 capitalize", 
 }
-
-// contoh cara pakai :
-{/* 
-<Button type="cartRemove" def="default">remove</Button> 
-<Button type="cartRemove" def="default">remove all</Button> 
-*/}
-  

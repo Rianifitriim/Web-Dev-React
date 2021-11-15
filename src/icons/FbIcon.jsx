@@ -4,7 +4,7 @@ import fb from "./fb.svg"
 export default function FbIcon() {
   return (
     <>
-      <img src={fb}></img>
+      <img src={fb} alt="logo"></img>
     </>
   )
 }

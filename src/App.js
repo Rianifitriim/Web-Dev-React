@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Homepage from './pages/Homepage';
 import DetailProduct from './pages/DetailProductPage';

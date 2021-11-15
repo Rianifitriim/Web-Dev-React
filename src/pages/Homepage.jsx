@@ -3,9 +3,7 @@ import jumbotron from "../images/jumbotron.png"
 import gambar from "../images/gambar.png"
 import Footer from "../layouts/Footer";
 import NavbarHome from "../layouts/NavbarHome"
-import Button from "../components/Button";
 import Card from "../components/Card"
-import ProductFilter from "../components/ProductFilter";
 import { Link } from "react-router-dom";
 
 export default function Homepage() {
@@ -34,7 +32,7 @@ export default function Homepage() {
       <div className="font-poppins container mx-auto px-5 mb-12 lg:mb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="lg:col-span-1">
-            <img src={gambar}></img>
+            <img src={gambar} alt="gambar"></img>
           </div>
           <div className="lg:col-span-1">
             <h3 className="font-extrabold text-2xl lg:text-4xl mt-10">Selling Product Since 2019</h3>

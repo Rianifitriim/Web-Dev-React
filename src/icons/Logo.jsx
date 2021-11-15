@@ -4,7 +4,7 @@ import logo from "./logo.svg"
 export default function Logo() {
   return (
     <>
-      <img src={logo}></img>
+      <img src={logo} alt="logo"></img>
     </>
   )
 }

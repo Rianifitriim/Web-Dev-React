@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import Button from "../components/Button";
-import IncDec from "../components/ButtonIncDec";
 import StarIcon from "../icons/StarIcon";
 import Footer from "../layouts/Footer";
 import NavbarLogin from "../layouts/NavbarLogin";
@@ -37,7 +36,7 @@ export default function DetailProduct(){
           {/* section 1 */}
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="lg:col-span-1">
-              <img className="lg:w-10/12 py-6" src={product.image_url}></img>
+              <img className="lg:w-10/12 py-6" src={product.image_url} alt="gambar"></img>
             </div>
             <div className="lg:col-span-1">
               <h3 className="font-extrabold text-xl lg:text-2xl lg:mt-28">{product.name}</h3>
