@@ -73,7 +73,7 @@ export default function Navbar({ fixed }) {
               <li className="nav-item">
                 <Link
                   className="lg:px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="/signup"
+                  to="/signup"
                 >
                 <Button def="default" type="navSignUpBlue">Sign up</Button>
                 </Link>
@@ -81,7 +81,7 @@ export default function Navbar({ fixed }) {
               <li className="nav-item">
                 <Link
                   className="lg:px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="/login"
+                  to="/login"
                 >
                 <Button def="default" type="navLogin">Login</Button>
                 </Link>
