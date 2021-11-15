@@ -29,6 +29,7 @@ export default function LoginPage() {
     listUser.forEach(user => {
       if (user.email === values.email && user.password === values.password) {
         setIsLogged(true)
+        localStorage.setItem("credentials", JSON.stringify(user))
         console.log("berhasil")
       } else {
         setIsFailed(true)
