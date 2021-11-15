@@ -14,7 +14,7 @@ export default function LoginPage() {
 
   const [listUser, setListUser] = useState([])
   const [isLogged, setIsLogged] = useState(false)
-
+  const [isFailed, setIsFailed] = useState(false)
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
@@ -31,6 +31,7 @@ export default function LoginPage() {
         setIsLogged(true)
         console.log("berhasil")
       } else {
+        setIsFailed(true)
         console.log("login gagal")
       }
     setErrors(validation(values));
@@ -45,7 +46,7 @@ export default function LoginPage() {
   },[listUser, values])
   
   return (
-      <div className="bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins">
+      <div className="h-screen bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins">
         <NavbarHome />
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-6">
@@ -108,7 +109,7 @@ export default function LoginPage() {
             </div>
                   {/* submit */}
                   <div>
-                    <div id="notLogged"></div>
+                    {isFailed && (<div className="text-xs text-red-600 my-3">No Such Data</div>)}
                     <Button
                       def="default"
                       type="loginSignUpSend"
