@@ -29,14 +29,13 @@ export default function Pagination({
         </p>
       </div>
       <nav className='block'>
-        <ul className='flex pl-0 rounded list-none flex-wrap justify-center'>
+        <ul className='flex pl-0 rounded list-none flex-wrap justify-center cursor-pointer'>
           <li>
             {pageNumbers.map((number) => (
-              <a
+              <span
                 onClick={() => {
                   paginate(number);
                 }}
-                href='#'
                 className={
                   currentPage === number
                     ? "bg-blue border-3F70F9 text-3F70F9 hover:bg-blue-200 relative inline-flex items-center px-3 py-2 border text-sm font-medium"
@@ -44,7 +43,7 @@ export default function Pagination({
                 }
               >
                 {number}
-              </a>
+              </span>
             ))}
           </li>
         </ul>

@@ -2,7 +2,6 @@ import React from "react";
 import Logo from "../icons/Logo";
 import {CartIcon} from "../icons/CartIcon";
 import Button from "../components/Button";
-import {Search} from "../components/Search";
 import { Link } from "react-router-dom";
 
 export default function Navbar({ fixed }) {

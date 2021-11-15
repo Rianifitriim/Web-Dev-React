@@ -2,7 +2,6 @@ import React from "react";
 import Logo from "../icons/Logo";
 import {CartIcon} from "../icons/CartIcon";
 import Button from "../components/Button";
-import {Search} from "../components/Search";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -32,12 +31,11 @@ export default function NavbarLogin({ fixed }) {
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="nav-item">
-                <a
+                <span
                   className="lg:px-3 py-3 lg:hidden items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75 flex"
-                  href="#"
                 >
                   <i className="text-lg leading-lg text-black opacity-75"></i><span className="ml-2">hi, user </span>
-                </a>
+                </span>
               </li>    
               <li className="nav-item">
                 <Link
@@ -82,12 +80,12 @@ export default function NavbarLogin({ fixed }) {
                 </Link>
               </li>
               <li className="nav-item">
-                <a
+                <span
                   className="lg:px-3 py-3 lg:flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75 hidden"
-                  href="#"
+                  
                 >
                   <i className="text-lg leading-lg text-black opacity-75"></i><span className="ml-2">hi, user </span>
-                </a>
+                </span>
               </li>
               <li className="nav-item">
                 <Link

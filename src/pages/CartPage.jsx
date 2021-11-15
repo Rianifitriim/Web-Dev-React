@@ -37,7 +37,7 @@ export default function Cart(){
           {/* map disini */}
           <div className="grid grid-cols-1 md:grid-cols-4 mt-8">
             <div className="col-span-1">
-              <img className="h-40 lg:h-72 mx-auto" src={product.image_url}></img>
+              <img className="h-40 lg:h-72 mx-auto" src={product.image_url} alt="gambar"></img>
             </div>
             <div className="col-span-3 md:ml-12">
               <h3 className="font-bold text-sm md:text-xl lg:mt-12">{product.name}</h3>
