@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../layouts/NavbarNoLogin";
 import Card from "../components/Card";
+import Footer from "../layouts/Footer";
 
 export default function ProductPage() {
   return (
@@ -11,6 +12,7 @@ export default function ProductPage() {
         <h1 className="font-extrabold text-2xl md:text-5xl mt-12 text-center">Latest Products</h1>
       </div>
       <Card />
+      <Footer/>
     </>
   )
 }
