@@ -51,7 +51,7 @@ export default function Card(){
   const ShowProducts = () => {
     return (
     <div className="font-poppins container mx-auto px-5 text-sm lg:text-base">
-      <div className="flex lg:justify-center gap-4 overflow-x-auto">
+      <div className="flex md:justify-center gap-4 overflow-x-auto">
         <button className='font-md border-b-2 hover:border-3F70F9' onClick = {() => setFilter(product)}>All</button>
         <button className='font-md border-b-2 hover:border-3F70F9' onClick = {() => filterProduct("PC")}>PC</button>
         <button className='font-md border-b-2 hover:border-3F70F9' onClick = {() => filterProduct("laptop")}>Laptop</button>
@@ -67,8 +67,13 @@ export default function Card(){
         <option value="name" className="text-sm">Name</option>
         <option value="rating" className="text-sm">Rating</option>
         </select>
-        <SearchHome onChange = {(e) => setSearch(e.target.value)} value={search}/>
+        <div className = "hidden md:block">
+          <SearchHome onChange = {(e) => setSearch(e.target.value)} value={search}/>
+        </div>
         {/* <Button def="def" type="navLogin">Submit</Button>  */}
+      </div>
+      <div className = "flex justify-center mt-3 md:hidden ">
+        <SearchHome onChange = {(e) => setSearch(e.target.value)} value={search}/>
       </div>
       <div className="w-full">
       <section className="max-w-5x mx-5 lg:mx-12 my-8 transition-shadow">

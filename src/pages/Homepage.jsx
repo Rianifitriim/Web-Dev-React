@@ -3,16 +3,17 @@ import jumbotron from "../images/jumbotron.png"
 import gambar from "../images/gambar.png"
 import Footer from "../layouts/Footer";
 import NavbarHome from "../layouts/NavbarHome"
+import NavbarHomeLogin from "../layouts/NavbarHomeLogin"
 import Card from "../components/Card"
 import { Link } from "react-router-dom";
 
-export default function Homepage() {
+export default function Homepage({isLogged}) {
 
   return (
     <>
       {/* section jumbotron */}
       <div className="bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins mb-12 lg:mb-20">
-        <NavbarHome />
+        {isLogged ? <NavbarHomeLogin /> : <NavbarHome />}
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-5">
             <div className="col-span-1 lg:col-span-3 my-8 lg:my-36">
