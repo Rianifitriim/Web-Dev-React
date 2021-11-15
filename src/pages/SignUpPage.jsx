@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import validation from "../components/validation";
 import Button from "../components/Button";
 import NavbarHome from "../layouts/NavbarHome";
 import SignUpIcon from "../icons/SignUpIcon";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router";
+
 
 export default function SignUp() {
   const [values, setValues] = useState({
-    nama: "",
+    name: "",
     gender: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+
+  const [listUser, setListUser] = useState([])
+  const [isSuccess, setIsSuccess] = useState(false)
+useEffect(() => {
+  fetch("http://localhost:3000/user")
+    .then(response => response.json())
+    .then(data => setListUser(data))
+    .catch(err => console.log(err))
+},[listUser, values])
 
   const [errors, setErrors] = useState({});
 
@@ -25,6 +36,17 @@ export default function SignUp() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    fetch("http://localhost:3000/user",{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data,"Sukses menambahkan"))
+    .catch(err => console.log(err))
+    setIsSuccess(true);
     setErrors(validation(values));
   };
 
@@ -171,14 +193,14 @@ export default function SignUp() {
 
                   {/* submit */}
                   <div className="mt-8">
-                    <Button
+                      <Button
                       def="default"
                       type="loginSignUpSend"
                       onClick={handleFormSubmit}
-                    >
-                      Sign Up
-                    </Button>
+                    >Sign Up</Button>
+                      { isSuccess && (<Redirect to="/login"/>) }
                   </div>
+        
                   <div className="text-center lg:flex lg:justify-center mt-4">
                     <p className="inline-block text-sm text-black-500">
                       already have an account?
