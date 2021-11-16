@@ -4,7 +4,7 @@ import Button from "../components/Button";
 import NavbarHome from "../layouts/NavbarHome";
 import SignUpIcon from "../icons/SignUpIcon";
 import { Link } from "react-router-dom";
-import { Redirect } from "react-router";
+import { Redirect, useHistory } from "react-router";
 
 
 export default function SignUp() {
@@ -16,16 +16,8 @@ export default function SignUp() {
     confirmPassword: "",
   });
 
-  const [listUser, setListUser] = useState([])
-  const [isSuccess, setIsSuccess] = useState(false)
-useEffect(() => {
-  fetch("http://localhost:3000/user")
-    .then(response => response.json())
-    .then(data => setListUser(data))
-    .catch(err => console.log(err))
-},[listUser, values])
-
   const [errors, setErrors] = useState({});
+  const history = useHistory()
 
   const handleChange = (event) => {
     setValues({
@@ -44,24 +36,20 @@ useEffect(() => {
       body: JSON.stringify(values),
     })
     .then(response => response.json())
-    .then(data => console.log(data,"Sukses menambahkan"))
+    .then(data => {
+      if(data.email) {
+        console.log(data,"Sukses menambahkan")
+        history.push("/login")
+      } else {
+        setErrors(validation(values));
+      }
+    })
     .catch(err => console.log(err))
-    setIsSuccess(true);
-    setErrors(validation(values));
   };
 
-  // // Initialize a boolean state
-  // const [passwordShown, setPasswordShown] = useState(false);
-
-  // // Password toggle handler
-  // const togglePassword = () => {
-  // // When the handler is invoked
-  // // inverse the boolean state of passwordShown
-  // setPasswordShown(true);
-  // };
   return (
     <div>
-      <div className="h-screen bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins">
+      <div className="bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins">
         <NavbarHome />
 
         <div className="container mx-auto px-5">
@@ -75,7 +63,7 @@ useEffect(() => {
             </div>
 
             {/* kanan */}
-            <div className="col-span-1 lg:col-span-3 my-8">
+            <div className="h-screen col-span-1 lg:col-span-3 my-8">
               <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
                 Sign Up Now
               </h1>
@@ -198,7 +186,6 @@ useEffect(() => {
                       type="loginSignUpSend"
                       onClick={handleFormSubmit}
                     >Sign Up</Button>
-                      { isSuccess && (<Redirect to="/login"/>) }
                   </div>
         
                   <div className="text-center lg:flex lg:justify-center mt-4">

@@ -27,7 +27,7 @@ export default function LoginPage() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     listUser.forEach(user => {
-      if (user.email === values.email && user.password === values.password) {
+      if (user.email === values.email && user.password === values.password && user.email.length >= 1) {
         setIsLogged(true)
         localStorage.setItem("credential", JSON.stringify(user))
         console.log("berhasil")

@@ -70,7 +70,6 @@ export default function Card(){
         <div className = "hidden md:block">
           <SearchHome onChange = {(e) => setSearch(e.target.value)} value={search}/>
         </div>
-        {/* <Button def="def" type="navLogin">Submit</Button>  */}
       </div>
       <div className = "flex justify-center mt-3 md:hidden ">
         <SearchHome onChange = {(e) => setSearch(e.target.value)} value={search}/>
