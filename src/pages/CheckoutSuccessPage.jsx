@@ -1,12 +1,27 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import NavbarLogin from "../layouts/NavbarLogin";
 import Footer from "../layouts/Footer";
 import checkout from "../images/checkout.gif";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router";
+import { useHistory } from "react-router";
 
 export default function CheckoutSuccess() {
+  const [user, setUser] = useState()
+  const history = useHistory()
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("credential");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+    } else {
+      history.push('/login') }
+  }, []);
+
   return (
     <>
+    {user && 
       <div>
         <NavbarLogin />
         <div className="container h-screen mx-auto px-5 font-poppins">
@@ -33,7 +48,7 @@ export default function CheckoutSuccess() {
           </div>
         </div>
         <Footer />
-      </div>
+      </div>}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Button from "../components/Button";
 import IncDec from "../components/ButtonIncDec";
 import Footer from "../layouts/Footer";
@@ -6,10 +6,25 @@ import NavbarLogin from "../layouts/NavbarLogin";
 import { useSelector, useDispatch } from "react-redux";
 import {delCart, addCart, removeCart} from '../redux/action';
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router";
+import { useHistory } from "react-router";
 
 export default function Cart(){
   const state = useSelector((state)=> state.handleCart)
   const dispatch = useDispatch()
+
+  const history = useHistory()
+
+  const [user, setUser] = useState()
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("credential");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+    } else {
+      history.push('/login') }
+  }, []);
 
   const handleDel = (item) => {
       dispatch(delCart(item))
@@ -82,6 +97,7 @@ export default function Cart(){
 
   return (
     <>
+    {user && <div>
       <NavbarLogin />
       <div className="font-poppins container mx-auto px-5 mb-12 lg:mb-20">
       {/* section 1 */}
@@ -92,6 +108,8 @@ export default function Cart(){
       {/* section footer */}
       </div>
       <Footer />
+    </div>}
+    
     </>
   )
 }

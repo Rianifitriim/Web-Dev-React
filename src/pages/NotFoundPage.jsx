@@ -1,14 +1,24 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Navbar from "../layouts/NavbarNoLogin";
+import NavbarLogin from "../layouts/NavbarLogin";
 import Footer from "../layouts/Footer";
 import notFound from "../images/notFound.gif";
 import { Link } from "react-router-dom";
 
 export default function NotFound() {
+  const [user, setUser] = useState()
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("credential");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+    }
+  }, []);
   return (
     <>
       <div>
-        <Navbar />
+        {user ? <NavbarLogin /> : <Navbar/>}
         <div className="container h-screen mx-auto font-poppins mb-4">
           <div className="flex flex-col">
             {/* atas */}
