@@ -40,7 +40,7 @@ export default function LoginPage() {
   }
 
   useEffect(() => {
-    fetch("http://localhost:3000/user")
+    fetch("https://pickled-capricious-beak.glitch.me/user")
       .then(response => response.json())
       .then(data => setListUser(data))
       .catch(err => console.log(err))
@@ -57,11 +57,11 @@ export default function LoginPage() {
               </h1>
               <img className="hidden mr-16 lg:flex w-11/12" src={ilustrasilogin} alt="gambar"/>
             </div>
-            <div className="col-span-1 lg:col-span-3 my-8 lg:my-6">
+            <div className="col-span-1 lg:col-span-3 lg:my-6">
             <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
             Login
-          </h1>
-              <div className="w-10/12 mx-auto lg:w-6/12 mt-10 bg-B5C5F2 p-8 border border-gray-300 shadow-2xl rounded-2xl">
+            </h1>
+              <div className="w-11/12 mx-auto lg:w-6/12 mt-5 bg-B5C5F2 p-8 border border-gray-300 shadow-2xl rounded-2xl">
                 {/* form */}
                 <form className=" w-full mx-auto">
                   {/* email */}
@@ -77,7 +77,7 @@ export default function LoginPage() {
                       onChange={handleChange}
                       placeholder="Enter Your Email"
                     ></input>
-                    <div className="text-xs text-red-600	">
+                    <div className="text-xs text-red-600">
                       {errors.email && <p className="error">{errors.email}</p>}
                     </div>
                   </div>

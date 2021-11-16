@@ -19,24 +19,26 @@ export default function NotFound() {
     <>
       <div>
         {user ? <NavbarLogin /> : <Navbar/>}
-        <div className="container h-screen mx-auto font-poppins mb-4">
+        <div className="container mx-auto font-poppins mb-4">
           <div className="flex flex-col">
-            {/* atas */}
-            <div className="block mx-auto">
-              <img src={notFound} alt="not Found"></img>
-            </div>
             {/* bawah */}
-            <div className="-mt-8 text-center mx-8 lg:mx-auto ">
+            <div className="text-center mx-8 lg:mx-auto ">
               <div>
-                <p className="text-xl md:text-3xl">
+                <p className="mt-8 text-xl md:text-3xl">
                     Oops!<br />
                     We can’t seem to find the page you’re looking for.                  
                 </p>
                 <br />
-                <Link to="/" className="text-md underline">
-                  Back to Homepage
-                </Link>
               </div>
+            </div>
+            {/* atas */}
+            <div className="-mt-4 flex justify-center">
+              <img src={notFound} alt="not Found" className="w-4/12"></img>
+            </div>
+            <div className="-mt-4 flex justify-center">    
+              <Link to="/" className="text-md underline">
+                Back to Homepage
+              </Link>
             </div>
           </div>
         </div>

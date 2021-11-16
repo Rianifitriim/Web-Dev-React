@@ -28,7 +28,7 @@ export default function SignUp() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    fetch("http://localhost:3000/user",{
+    fetch("https://pickled-capricious-beak.glitch.me/user",{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
