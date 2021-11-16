@@ -18,7 +18,7 @@ export default function Card(){
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true)
-      const response = await fetch("http://localhost:3000/products")
+      const response = await fetch("https://pickled-capricious-beak.glitch.me/products")
       if(componentMounted) {
         setProduct(await response.clone().json())
         setFilter(await response.json())
