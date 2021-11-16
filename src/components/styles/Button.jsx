@@ -18,7 +18,7 @@ export const ButtonType = {
   // untuk button add to cart detail product
   detailAdd : "text-blue-500 border-2 border-blue-500 hover:bg-blue-300 hover:text-white w-full rounded-full py-2 px-3 capitalize",
   // untuk button checkout page cart 
-  cartCheckout : "bg-3F70F9 text-white hover:border-blue-500 hover:bg-blue-400 w-1/2 lg:w-32 rounded-full py-2 capitalize", 
+  cartCheckout : "bg-3F70F9 text-white hover:border-blue-500 hover:bg-blue-400 w-32 md:w-40 rounded-full py-2 capitalize", 
   // untuk button remove & remove all page cart
   cartRemove : "bg-transparent text-3F70F9 border border-3F70F9 hover:bg-blue-100 w-1/2 lg:w-32 rounded-full py-1 capitalize", 
 }
