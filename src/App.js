@@ -7,6 +7,7 @@ import ContactPage from './pages/ContactPage';
 import Cart from './pages/CartPage';
 import ProductPage from './pages/ProductPage';
 import CheckoutSuccess from './pages/CheckoutSuccessPage';
+import NotFound from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <Route exact path = "/product" component={ProductPage} />
           <Route exact path = "/success" component={CheckoutSuccess} />
           <Route exact path="/" component={Homepage} />
-          {/* <Route exact path="*" component={NotFound} /> */}
+          <Route exact path="*" component={NotFound} />
         </Switch>
       </div>
     </BrowserRouter>
