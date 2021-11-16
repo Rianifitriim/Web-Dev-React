@@ -31,7 +31,7 @@ export default function DetailProduct(){
   }
 
   useEffect(() => {
-    fetch(" http://localhost:3000/products")
+    fetch("https://pickled-capricious-beak.glitch.me/products")
     .then(response => response.json())
     .then(data => setProduct(data.find(product => product.id === Number(id))))
     .catch(err => console.log(err))

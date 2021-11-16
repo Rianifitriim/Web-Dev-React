@@ -18,7 +18,7 @@ export default function Card(){
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true)
-      const response = await fetch("http://localhost:3000/products")
+      const response = await fetch("https://pickled-capricious-beak.glitch.me/products")
       if(componentMounted) {
         setProduct(await response.clone().json())
         setFilter(await response.json())
@@ -70,7 +70,6 @@ export default function Card(){
         <div className = "hidden md:block">
           <SearchHome onChange = {(e) => setSearch(e.target.value)} value={search}/>
         </div>
-        {/* <Button def="def" type="navLogin">Submit</Button>  */}
       </div>
       <div className = "flex justify-center mt-3 md:hidden ">
         <SearchHome onChange = {(e) => setSearch(e.target.value)} value={search}/>
