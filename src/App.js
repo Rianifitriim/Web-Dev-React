@@ -1,12 +1,16 @@
 import ReactDOM from 'react-dom';
 import Homepage from './pages/Homepage';
-function App() {
+import NotFound from './pages/notfound';
+
+
+
+function App () {
   return (
     <div className="App">
-     <div>
-      <Homepage />
-     </div>
+    <div>
+     <NotFound />
     </div>
+   </div>
   );
 }
 
