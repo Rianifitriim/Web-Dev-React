@@ -8,23 +8,28 @@ import validation from "../components/validation";
 import Navbar from "../layouts/NavbarNoLogin";
 import NavbarLogin from "../layouts/NavbarLogin";
 import Footer from "../layouts/Footer";
+import success from "../images/success.gif";
+
+
 
 export default function ContactPage(){
 
-    const [user, setUser] = useState()
+const [user, setUser] = useState()
+const [showModal, setShowModal] = React.useState(false);
 
-    useEffect(() => {
-      const loggedInUser = localStorage.getItem("credential");
-      if (loggedInUser) {
-        const foundUser = JSON.parse(loggedInUser);
-        setUser(foundUser);
-      }
-    }, []);
+useEffect(() => {
+const loggedInUser = localStorage.getItem("credential");
+if (loggedInUser) {
+const foundUser = JSON.parse(loggedInUser);
+setUser(foundUser);
+}
+}, []);
 
 const [values, setValues] = useState({
 name: "",
 message: "",
 });
+
 
 const [errors, setErrors] = useState({});
 
@@ -37,11 +42,56 @@ setValues({
 const handleFormSubmit = (event) => {
 event.preventDefault();
 setErrors(validation(values));
+setShowModal(true);
 };
 
 return(
-<div>
-    {user ? <NavbarLogin /> : <Navbar />}
+    
+ <div>
+    {user ?
+    <NavbarLogin /> :
+    <Navbar />}
+    {showModal ? (
+        <>
+          <div
+            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+          >
+            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+              {/*content*/}
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                {/*header*/}
+                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                  <h5 className="ml-10 text-xl font-normal">
+                  Your message was sent successfully!
+                  </h5>
+                  <button
+                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                    onClick={() => setShowModal(false)}
+                  >
+                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                      ×
+                    </span>
+                  </button>
+                </div>
+                {/*body*/}
+                <div className="relative p-6 flex-auto">
+                <img className="ml-24 w-48"src={success} alt="success"></img>
+                </div>
+                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                    <button
+                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => setShowModal(false)}
+                  >
+                    Close
+                  </button>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </>
+      ) : null}
     <div className="container flex justify-center px-5 mt-20 ml-16">
         <div className="ml-3 mb-10 bg-B5C5F2 lg:p-8 border border-gray-300 shadow-2xl rounded-2xl lg:ml-5">
             <div className=" mx-auto sm:px-6 lg:px-8">
@@ -68,9 +118,13 @@ return(
                                     {errors.message && <p className="error">{errors.message}</p>}
                                 </div>
                             </div>
+                            
                             <div className="mt-2">
-                                <Button def="default" type="loginSignUpSend" onClick={handleFormSubmit}>Submit</Button>
+                                <Button def="default" type="loginSignUpSend" onClick={handleFormSubmit} >Submit</Button>
                             </div>
+                            
+
+
                         </form>
 
                         <div className="p-4 mx-5 my-10 bg-gray-100 dark:bg-gray-800">
@@ -104,6 +158,7 @@ return(
                                     @gos.official
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
