@@ -1,13 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../components/Button";
 import FbIcon from "../icons/FbIcon"
 import IgIcon from "../icons/IgIcon";
 import TwitterIcon from "../icons/TwitterIcon";
 import logoContact from "../images/logoContact.png"
 import validation from "../components/validation";
-import NavbarNoLogin from "../layouts/NavbarNoLogin"
+import Navbar from "../layouts/NavbarNoLogin";
+import NavbarLogin from "../layouts/NavbarLogin";
 import Footer from "../layouts/Footer";
+
 export default function ContactPage(){
+
+    const [user, setUser] = useState()
+
+    useEffect(() => {
+      const loggedInUser = localStorage.getItem("credential");
+      if (loggedInUser) {
+        const foundUser = JSON.parse(loggedInUser);
+        setUser(foundUser);
+      }
+    }, []);
+
 const [values, setValues] = useState({
 name: "",
 message: "",
@@ -28,7 +41,7 @@ setErrors(validation(values));
 
 return(
 <div>
-    <NavbarNoLogin />
+    {user ? <NavbarLogin /> : <Navbar />}
     <div className="container flex justify-center px-5 mt-20 ml-16">
         <div className="ml-3 mb-10 bg-B5C5F2 lg:p-8 border border-gray-300 shadow-2xl rounded-2xl lg:ml-5">
             <div className=" mx-auto sm:px-6 lg:px-8">

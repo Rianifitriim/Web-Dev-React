@@ -8,6 +8,12 @@ import { useSelector } from "react-redux";
 export default function NavbarLogin({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   const state = useSelector((state)=>state.handleCart)
+
+  
+  const handleLogout = () => {
+    localStorage.clear();
+  };
+  
   return (
     <>
       <nav className="font-poppins sticky top-0 inset-x-0 z-50 flex flex-wrap items-center justify-between px-2 pt-2 pb-1 bg-B5C5F2 mb-3">
@@ -92,7 +98,7 @@ export default function NavbarLogin({ fixed }) {
                   className="lg:px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75"
                   to="/"
                 >
-                <Button def="default" type="navLogin">logout</Button>
+                <Button def="default" type="navLogin" onClick={handleLogout}>logout</Button>
                 </Link>
               </li>
             </ul>

@@ -3,13 +3,25 @@ import Button from "../components/Button";
 import StarIcon from "../icons/StarIcon";
 import Footer from "../layouts/Footer";
 import NavbarLogin from "../layouts/NavbarLogin";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
 
 
 export default function DetailProduct(){
+  const [user, setUser] = useState()
+  const history = useHistory()
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("credential");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+    } else {
+      history.push('/login')
+    }
+  }, []);
 
   const [product, setProduct] = useState ([])
 
@@ -29,8 +41,9 @@ export default function DetailProduct(){
 
     return(
       <>
+      {user && <div>
         {/* section navbar */}
-        <NavbarLogin />
+         <NavbarLogin />
 
         <div className="font-poppins container mx-auto px-5 mb-12 lg:mb-20">
           {/* section 1 */}
@@ -61,6 +74,9 @@ export default function DetailProduct(){
 
         {/* section footer */}
         <Footer />
+      </div> 
+    }
+      
       </>
     )
 }
