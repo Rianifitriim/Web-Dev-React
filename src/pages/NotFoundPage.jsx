@@ -1,14 +1,14 @@
 import React from "react";
-import NavbarLogin from "../layouts/NavbarLogin";
+import Navbar from "../layouts/NavbarNoLogin";
 import Footer from "../layouts/Footer";
-import notFound from "../images/notFound.png";
+import notFound from "../images/notFound.gif";
 import { Link } from "react-router-dom";
 
 export default function NotFound() {
   return (
     <>
       <div>
-        <NavbarLogin />
+        <Navbar />
         <div className="container h-screen mx-auto font-poppins mb-4">
           <div className="flex flex-col">
             {/* kiri */}
