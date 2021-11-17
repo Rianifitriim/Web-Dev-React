@@ -4,6 +4,7 @@ import Pagination from "./Pagination";
 import Button from "./Button"
 import { Link } from 'react-router-dom';
 import { SearchHome } from "./Search";
+import { sortBy } from "lodash";
 
 export default function Card(){
   const [product, setProduct] = useState ([])
@@ -12,6 +13,7 @@ export default function Card(){
   const [postsPerPage] = useState(10)
   const [filter, setFilter] = useState(product)
   const [search, setSearch] = useState('')
+  const [sortType, setSortType] = useState('')
 
   let componentMounted = true
 
@@ -30,12 +32,54 @@ export default function Card(){
     }
     getProducts()
   },[])
+
+  // useEffect(() => {
+  //   const sortArray = type => {
+  //     const types = {
+  //       name: 'name',
+  //       price: 'price',
+  //       rating: 'rating',
+  //     };
+  //     const sortProperty = types[type];
+  //     const sorted = [...filter].sort((a, b) => b[sortProperty] - a[sortProperty]);
+  //     setFilter(sorted);
+  //   };
+
+  //   sortArray(sortType);
+  // }, [sortType]); 
+
+  useEffect(() => {
+    const sortArray = type => {
+      const price = {
+        price: 'price',
+      };
+      const rating = {
+        rating: 'rating'
+      }
+      const sortPrice = price[type];
+      const sortRating = rating[type];
+      if (sortPrice){
+        const sorted = [...filter].sort((a, b) =>  a[sortPrice] - b[sortPrice]);
+        setFilter(sorted);
+      } else {
+        const sorted = [...filter].sort((a, b) => b[sortRating] - a[sortRating]);
+        setFilter(sorted);
+      }
+    }
+    sortArray(sortType);
+  }, [sortType]); 
   
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = filter.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+  // const handleSort = (event, cat) => {
+  //   setSearch(event.target.value)
+  //   let sortBy = sortBy(product, [cat])
+  //   setSearch(sortBy)
+  // }
 
   const filterProduct = (cat) => {
     const updatedList = product.filter((x)=>x.category === String(cat))
@@ -62,9 +106,10 @@ export default function Card(){
           id="show"
           className="form-select cursor-pointer"
           aria-label="Default select example"
+          onChange = {(e) => setSortType(e.target.value)}
         >
-        <option value="" className="text-sm" selected>Sort by</option>
-        <option value="name" className="text-sm">Name</option>
+        <option value="name" className="text-sm">Sort by</option>
+        <option value="price" className="text-sm">Price</option>
         <option value="rating" className="text-sm">Rating</option>
         </select>
         <div className = "hidden md:block">
