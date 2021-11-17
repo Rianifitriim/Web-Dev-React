@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import jumbotron from "../images/jumbotron.png"
-import gambar from "../images/gambar.png"
+import gambar from "../images/gbr.gif"
 import Footer from "../layouts/Footer";
 import NavbarHome from "../layouts/NavbarHome"
 import NavbarHomeLogin from "../layouts/NavbarHomeLogin"
@@ -32,16 +32,16 @@ export default function Homepage() {
               <svg className="ml-2 w-5 h-5 inline-block underline" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" /></svg></span>
               </Link>
             </div>
-            <div className="hidden lg:block lg:col-span-2 my-8 mx-auto">
+            <div className="hidden lg:flex lg:items-center lg:col-span-2 my-8 mx-auto">
               <img src={jumbotron} alt="homepic" />
             </div>
           </div>
         </div>
       </div>
       {/* section about */}
-      <div className="font-poppins container mx-auto px-5 mb-12 lg:mb-20">
+      <div className="font-poppins container mx-auto px-5 lg:px-0 mb-12 lg:mb-36">
         <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 flex justify-center lg:items-center">
             <img src={gambar} alt="gambar"></img>
           </div>
           <div className="lg:col-span-1">
