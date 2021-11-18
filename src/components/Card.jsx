@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
-import StarIcon from "../icons/StarIcon"
+import { useEffect, useState, useMemo } from "react";
+import StarIcon from "../icons/StarIcon";
 import Pagination from "./Pagination";
-import Button from "./Button"
+import Button from "./Button";
 import { Link } from 'react-router-dom';
 import { SearchHome } from "./Search";
-import { sortBy } from "lodash";
+import debounce from "lodash.debounce";
+import iniloading from "../images/loading.gif"
 
 export default function Card(){
   const [product, setProduct] = useState ([])
@@ -15,8 +16,8 @@ export default function Card(){
   const [search, setSearch] = useState('')
   const [sortType, setSortType] = useState('')
 
+  // get data from API
   let componentMounted = true
-
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true)
@@ -33,21 +34,7 @@ export default function Card(){
     getProducts()
   },[])
 
-  // useEffect(() => {
-  //   const sortArray = type => {
-  //     const types = {
-  //       name: 'name',
-  //       price: 'price',
-  //       rating: 'rating',
-  //     };
-  //     const sortProperty = types[type];
-  //     const sorted = [...filter].sort((a, b) => b[sortProperty] - a[sortProperty]);
-  //     setFilter(sorted);
-  //   };
-
-  //   sortArray(sortType);
-  // }, [sortType]); 
-
+  // sort by func
   useEffect(() => {
     const sortArray = type => {
       const price = {
@@ -69,26 +56,33 @@ export default function Card(){
     sortArray(sortType);
   }, [sortType]); 
   
+  // pagination
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = filter.slice(indexOfFirstPost, indexOfLastPost);
-
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
-  // const handleSort = (event, cat) => {
-  //   setSearch(event.target.value)
-  //   let sortBy = sortBy(product, [cat])
-  //   setSearch(sortBy)
-  // }
+  // search func
+  const changeHandler = (event) => {
+    setSearch(event.target.value);
+  };
+  const debouncedChangeHandler = useMemo(
+    () => debounce(changeHandler, 1000)
+  , []);
 
+  // filter category func
   const filterProduct = (cat) => {
     const updatedList = product.filter((x)=>x.category === String(cat))
     setFilter(updatedList)
   }
 
+
   const Loading = () => {
     return (
-      <p className="font-poppins font-bold container mx-auto px-5 my-5 text-sm lg:text-base text-center">Loading...</p>
+      <div className="my-5">
+        <p className="font-poppins font-bold container mx-auto px-5 text-sm lg:text-lg text-center capitalize">please wait...</p>
+        <img src={iniloading} alt="loading" className = "w-3/12 container mx-auto flex justify-center"></img>
+      </div>
       )
     }
     
@@ -113,11 +107,11 @@ export default function Card(){
         <option value="rating" className="text-sm">Rating</option>
         </select>
         <div className = "hidden md:block">
-          <SearchHome onChange = {(e) => setSearch(e.target.value)} value={search}/>
+          <SearchHome onChange = {debouncedChangeHandler}/>
         </div>
       </div>
       <div className = "flex justify-center mt-3 md:hidden ">
-        <SearchHome onChange = {(e) => setSearch(e.target.value)} value={search}/>
+        <SearchHome onChange = {debouncedChangeHandler}/>
       </div>
       <div className="w-full">
       <section className="max-w-5x mx-5 lg:mx-12 my-8 transition-shadow">
@@ -125,9 +119,9 @@ export default function Card(){
           {
             currentPosts ?.filter(product => {
               if (search === "") {
-                return product
+                return filter
               } else if (product.name.toLowerCase().includes(search.toLowerCase())){
-                return product
+                return filter
               }
             }).map((product, key) => {
               return (
