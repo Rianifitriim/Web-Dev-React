@@ -51,7 +51,7 @@ export default function NavbarHome({ fixed }) {
                 className="lg:px-3 py-3 lg:hidden items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75 flex"
                 href="#"
               >
-                <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">hi, {userName} </span>
+                <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">hi, {userName}! </span>
               </a>
             </li>
             <li className="nav-item active">
@@ -81,7 +81,7 @@ export default function NavbarHome({ fixed }) {
             <li className="nav-item">
               <Link
                 className="lg:px-3 py-3 md:hidden items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75 grid grid-cols-12"
-                href="/cart"
+                to="/cart"
               >
                 <span className="ml-2 col-span-10">my carts</span>
                 <span className="ml-1 text-white bg-3F70F9 rounded-full p-1 text-center">{state.length}</span>
@@ -101,7 +101,7 @@ export default function NavbarHome({ fixed }) {
                 className="lg:px-3 py-3 lg:flex items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75 hidden"
                 href="#"
               >
-                <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">hi, {userName} </span>
+                <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">hi, {userName}! </span>
               </a>
             </li>
             <li className="nav-item">

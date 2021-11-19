@@ -50,12 +50,14 @@ export default function SignUp() {
   return (
     <div>
       <div className="bg-gradient-to-r from-3F70F9 via-4C79F9 to-69BAEC font-poppins">
+        <div data-aos="fade" data-aos-duration="2000">
         <NavbarHome />
+        </div>
 
-        <div className="container mx-auto px-5">
+        <div className="container mx-auto px-5" >
           <div className="grid grid-cols-1 lg:grid-cols-6">
             {/* kiri */}
-            <div className="hidden lg:block lg:col-span-3 my-8 mx-auto">
+            <div className="hidden lg:block lg:col-span-3 my-8 mx-auto" data-aos="fade-right" data-aos-duration="1500">
               <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
                 Lets Get Started!
               </h1>
@@ -63,7 +65,7 @@ export default function SignUp() {
             </div>
 
             {/* kanan */}
-            <div className="h-screen col-span-1 lg:col-span-3 my-8">
+            <div className="h-screen col-span-1 lg:col-span-3 my-8" data-aos="fade-left" data-aos-duration="1500">
               <h1 className="text-center text-white lg:mx-40 text-lg font-bold">
                 Sign Up Now
               </h1>

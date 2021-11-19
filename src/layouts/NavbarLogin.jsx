@@ -49,7 +49,7 @@ export default function NavbarLogin({ fixed }) {
                 <span
                   className="lg:px-3 py-3 lg:hidden items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75 flex"
                 >
-                  <i className="text-lg leading-lg text-black opacity-75"></i><span className="ml-2">hi, {userName} </span>
+                  <i className="text-lg leading-lg text-black opacity-75"></i><span className="ml-2">hi, {userName}! </span>
                 </span>
               </li>    
               <li className="nav-item">
@@ -99,7 +99,7 @@ export default function NavbarLogin({ fixed }) {
                   className="lg:px-3 py-3 lg:flex items-center text-lg capitalize font-medium leading-snug text-black hover:opacity-75 hidden"
                   
                 >
-                  <i className="text-lg leading-lg text-black opacity-75"></i><span className="ml-2">hi, {userName} </span>
+                  <i className="text-lg leading-lg text-black opacity-75"></i><span className="ml-2">hi, {userName}! </span>
                 </span>
               </li>
               <li className="nav-item">

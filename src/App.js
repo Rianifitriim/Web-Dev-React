@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, {useEffect} from "react";
 import Homepage from './pages/Homepage';
 import DetailProduct from './pages/DetailProductPage';
 import LoginPage from './pages/LoginPage';
@@ -8,6 +9,14 @@ import Cart from './pages/CartPage';
 import ProductPage from './pages/ProductPage';
 import CheckoutSuccess from './pages/CheckoutSuccessPage';
 import NotFound from "./pages/NotFoundPage";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+
+AOS.init();
+// useEffect(() => {
+// },[])
+
 
 function App() {
   return (

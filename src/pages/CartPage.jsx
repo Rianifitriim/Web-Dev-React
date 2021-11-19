@@ -62,7 +62,7 @@ export default function Cart(){
         "first_name": `${userName}`,
         "last_name": "",
         "email": `${userEmail}`,
-        "phone": "0987654321"
+        "phone": "-"
       }),
     })
     .then(response => response.json())
@@ -82,7 +82,7 @@ export default function Cart(){
 
   const emptyCart = () => {
     return(
-      <div className="container h-screen mx-auto px-5">
+      <div className="container h-screen mx-auto px-5" data-aos="fade-right" data-aos-duration="1500">
         <div className="font-semibold py-5">
             <h3>Your Cart is Empty</h3>
         </div>
@@ -146,11 +146,15 @@ export default function Cart(){
       <NavbarLogin />
       <div className="font-poppins container mx-auto px-5 mb-12 lg:mb-20">
       {/* section 1 */}
-      <h1 className="font-extrabold text-2xl md:text-4xl lg:mt-12">My Carts</h1>
+      <h1 className="font-extrabold text-2xl md:text-4xl lg:mt-12" data-aos="fade-right" data-aos-duration="1500">My Carts</h1>
       {state.length === 0 && emptyCart()}
+      <div data-aos="fade-right" data-aos-duration="1500">
       {state.length !== 0 && state.map(cartItems)} 
+      </div>
+      <div data-aos="fade-left" data-aos-duration="1500">
       {state.length !== 0 && total()}
       {state.length !== 0 && buttons()}
+      </div>
       {/* section footer */}
       </div>
       <Footer />

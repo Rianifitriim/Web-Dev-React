@@ -48,10 +48,10 @@ export default function DetailProduct(){
         <div className="font-poppins container mx-auto px-5 mb-12 lg:mb-20">
           {/* section 1 */}
           <div className="grid grid-cols-1 lg:grid-cols-2">
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1" data-aos="fade-right" data-aos-duration="1500">
               <img className="lg:w-10/12 py-6" src={product.image_url} alt="gambar"></img>
             </div>
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1" data-aos="fade-left" data-aos-duration="1500">
               <h3 className="font-extrabold text-xl lg:text-2xl lg:mt-28">{product.name}</h3>
               <div className="my-2 capitalize">stock : {product.stock}</div>
               <div className="my-2"><StarIcon/>{product.rating}</div>
@@ -66,7 +66,7 @@ export default function DetailProduct(){
           </div>
 
           {/* section 2 */}
-          <div>
+          <div data-aos="fade-up" data-aos-duration="1500">
             <h3 className="text-base lg:text-xl font-semibold">{product.name}</h3><br></br>
             <p className="whitespace-pre-line align-bottom">{product.desc}</p>
           </div>

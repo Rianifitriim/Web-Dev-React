@@ -20,9 +20,11 @@ export default function ProductPage() {
       {user ? <NavbarLogin /> : <Navbar />}
       <div className="font-poppins container mx-auto px-5 mb-12 lg:mb-12">
         {/* section 1 */}
-        <h1 className="font-extrabold text-2xl md:text-5xl mt-12 text-center">Latest Products</h1>
+        <h1 className="font-extrabold text-2xl md:text-5xl mt-12 text-center" data-aos="fade" data-aos-duration="2000">Latest Products</h1>
       </div>
-      <Card />
+      <div data-aos="fade-up" data-aos-duration="1500">
+        <Card />
+      </div>
       <Footer/>
     </>
   )
