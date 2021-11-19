@@ -8,8 +8,9 @@ const handleCart =(state = cart, action) => {
             const exist = state.find((x)=> x.id === product.id);
             if(exist){
                 // Increase the Quantity
+                let newTotal = state.total + exist.price
                 return state.map((x)=>
-                x.id === product.id ? {...x, qty: x.qty + 1} : x
+                x.id === product.id ? {...x, qty: x.qty + 1, total: newTotal} : x
                 );
             }else{
                 const product = action.payload;
@@ -28,8 +29,9 @@ const handleCart =(state = cart, action) => {
                 if(exist1.qty === 1){
                     return state.filter((x)=> x.id !== exist1.id);
                 }else{
+                    let newTotal = state.total + exist1.price
                     return state.map((x)=>
-                        x.id === product.id ? {...x, qty: x.qty-1} : x
+                        x.id === product.id ? {...x, qty: x.qty-1, total : newTotal} : x
                     );
                 }
                 break;
@@ -38,6 +40,10 @@ const handleCart =(state = cart, action) => {
               return state = state.filter((x)=>{
                   return x.id !== action.payload.id
               })
+              break;
+
+            case "CLEARITEM" :
+              return state = []
               break;
     
         default:

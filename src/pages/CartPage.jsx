@@ -4,27 +4,35 @@ import IncDec from "../components/ButtonIncDec";
 import Footer from "../layouts/Footer";
 import NavbarLogin from "../layouts/NavbarLogin";
 import { useSelector, useDispatch } from "react-redux";
-import {delCart, addCart, removeCart} from '../redux/action';
-import { Link } from "react-router-dom";
-import { Redirect } from "react-router";
+import {clearCart, delCart, addCart, removeCart} from '../redux/action';
 import { useHistory } from "react-router";
 
 export default function Cart(){
   const state = useSelector((state)=> state.handleCart)
   const dispatch = useDispatch()
-
   const history = useHistory()
-
+  
   const [user, setUser] = useState()
+  const [userName, setUserName] = useState('user')
+  const [userEmail, setUserEmail] = useState('Challenger@gmail.com')
+  const [amount, setAmount] = useState(0)
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("credential");
     if (loggedInUser) {
       const foundUser = JSON.parse(loggedInUser);
-      setUser(foundUser);
+      setUser(foundUser)
+      setUserName(foundUser.name)
+      setUserEmail(foundUser.email)
     } else {
       history.push('/login') }
   }, []);
+
+  
+  useEffect(() => {
+    const reduceTotal = state.reduce((price, item) => Number(price) + Number(item.qty) * Number(item.price), 0)
+    setAmount(reduceTotal)
+  })
 
   const handleDel = (item) => {
       dispatch(delCart(item))
@@ -35,10 +43,46 @@ export default function Cart(){
   const handleRemove = (item) => {
       dispatch(removeCart(item))
   }
+  
+  const handleCheckout = async () => {
+    console.log('ini kepanggil......');
+    const chars ='abcdefghijklmnopqrstuvwxyz0123456789';
+      let result = '';
+      for ( let i = 0; i < 20; i++ ) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+    const responseServer = await fetch('https://spiny-vivacious-flat.glitch.me/pay', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        "order_id": `Transakti-${result}`,
+        "gross_amount": `${amount}`,
+        "first_name": `${userName}`,
+        "last_name": "",
+        "email": `${userEmail}`,
+        "phone": "-"
+      }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data)
+      return data
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+    console.log('ini setelah manggil')
+    console.log(responseServer)
+    window.open(responseServer.redirect_url)
+    dispatch(clearCart())
+    history.push("/success")
+  };
 
   const emptyCart = () => {
     return(
-      <div className="container mx-auto px-5">
+      <div className="container h-screen mx-auto px-5" data-aos="fade-right" data-aos-duration="1500">
         <div className="font-semibold py-5">
             <h3>Your Cart is Empty</h3>
         </div>
@@ -65,9 +109,6 @@ export default function Cart(){
               <div className="inline-block w-8">
                 <IncDec onClick={() => handleAdd(product)}>+</IncDec>
               </div>
-              <div className="my-2 capitalize">
-                Rp {product.qty * product.price}
-              </div>
               <div className="my-3">
                 <Button def="def" type="cartRemove" onClick={() => handleRemove(product)}>remove</Button>
               </div>
@@ -79,21 +120,25 @@ export default function Cart(){
     )
   }
 
+  const total = () => {
+    return (
+      <p className="flex flex-row-reverse mt-8 font-semibold text-base md:text-xl text-3F70F9"> Total : Rp {new Intl.NumberFormat(['ban', 'id']).format(amount)} </p>
+    )
+  }
+
   const buttons = () => {
     return(
       <>
         {/* section harga */}
-        <div className="">
-          <p className="flex flex-row-reverse mt-8 font-semibold text-base md:text-xl text-3F70F9"></p>
+        <div className="">        
           <div className="flex flex-row-reverse my-4 gap-3">
-            <Link to = "/success">
-              <Button def="def" type="cartCheckout">checkout</Button>
-            </Link>
+            <Button def="def" type="cartCheckout" onClick={handleCheckout}>checkout</Button>
           </div>
         </div>
       </>
     )
   }
+
 
   return (
     <>
@@ -101,10 +146,15 @@ export default function Cart(){
       <NavbarLogin />
       <div className="font-poppins container mx-auto px-5 mb-12 lg:mb-20">
       {/* section 1 */}
-      <h1 className="font-extrabold text-2xl md:text-4xl lg:mt-12">My Carts</h1>
+      <h1 className="font-extrabold text-2xl md:text-4xl lg:mt-12" data-aos="fade-right" data-aos-duration="1500">My Carts</h1>
       {state.length === 0 && emptyCart()}
-      {state.length !== 0 && state.map(cartItems)}
+      <div data-aos="fade-right" data-aos-duration="1500">
+      {state.length !== 0 && state.map(cartItems)} 
+      </div>
+      <div data-aos="fade-left" data-aos-duration="1500">
+      {state.length !== 0 && total()}
       {state.length !== 0 && buttons()}
+      </div>
       {/* section footer */}
       </div>
       <Footer />

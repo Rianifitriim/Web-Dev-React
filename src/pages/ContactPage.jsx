@@ -96,7 +96,7 @@ export default function ContactPage(){
             <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
             </>
         )}
-        <div className="container mx-auto px-5 my-20">
+        <div className="container mx-auto px-5 my-20" data-aos="zoom-in" data-aos-duration="1500">
             <div className="flex justify-center">
                 <div className="bg-B5C5F2 lg:p-8 border border-gray-300 shadow-2xl rounded-2xl">
                     <div className="mx-auto sm:px-6 lg:px-8">

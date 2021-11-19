@@ -27,17 +27,17 @@ export default function CheckoutSuccess() {
         <div className="container mx-auto px-5 font-poppins">
           <div className="grid grid-cols-1 lg:grid-cols-6">
             {/* kiri */}
-            <div className="block lg:col-span-3 mx-auto md:w-3/5 lg:w-full ">
+            <div className="block lg:col-span-3 mx-auto w-full md:w-3/5 lg:w-full" data-aos="fade-right" data-aos-duration="2000">
               <img src={checkout} alt="CheckoutSuccess"></img>
             </div>
 
             {/* kanan */}
-            <div className="col-span-1 lg:col-span-3 my-8 lg:my-48 md:text-center -mt-8">
+            <div className="col-span-1 lg:col-span-3 my-8 lg:my-48 md:text-center -mt-8 mb-40 sm:mb-12" data-aos="fade-left" data-aos-duration="2000">
               <div>
                 <p className="text-2xl lg:text-3xl">
                   Thanks for order!
                   <br />
-                  Woohoo your payment sucessfully and your order is complete.
+                  Please complete your transaction in the new tab that shown on your browser
                 </p>
                 <br />
                 <Link to="/" className="text-sm md:text-xl underline">
