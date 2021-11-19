@@ -79,7 +79,7 @@ export default function Card(){
 
   const Loading = () => {
     return (
-      <div className="my-5">
+      <div className="h-screen my-5">
         <p className="font-poppins font-bold container mx-auto px-5 text-sm lg:text-lg text-center capitalize">please wait...</p>
         <img src={iniloading} alt="loading" className = "w-3/12 container mx-auto flex justify-center"></img>
       </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Logo from "../icons/Logo";
 import {CartIconHome} from "../icons/CartIcon";
 import Button from "../components/Button";
@@ -10,6 +10,16 @@ export default function NavbarHome({ fixed }) {
 
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   const state = useSelector((state)=>state.handleCart)
+
+  const [userName, setUserName] = useState('user')
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("credential");
+    if(loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUserName(foundUser.name.split(' ').slice(0, 1))
+    }
+  }, []);
 
   const handleLogout = () => {
     localStorage.clear();
@@ -41,7 +51,7 @@ export default function NavbarHome({ fixed }) {
                 className="lg:px-3 py-3 lg:hidden items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75 flex"
                 href="#"
               >
-                <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">hi, user </span>
+                <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">hi, {userName} </span>
               </a>
             </li>
             <li className="nav-item active">
@@ -91,7 +101,7 @@ export default function NavbarHome({ fixed }) {
                 className="lg:px-3 py-3 lg:flex items-center text-lg capitalize font-medium leading-snug text-white hover:opacity-75 hidden"
                 href="#"
               >
-                <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">hi, user </span>
+                <i className="text-lg leading-lg text-white opacity-75"></i><span className="ml-2">hi, {userName} </span>
               </a>
             </li>
             <li className="nav-item">
